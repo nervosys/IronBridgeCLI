@@ -59,7 +59,7 @@ const SWAGGER_UI_HTML: &str = r#"<!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chasm API Documentation</title>
+    <title>IronBridge API Documentation</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swagger-ui-dist@5/swagger-ui.css">
     <style>
         body {
@@ -111,9 +111,9 @@ const SWAGGER_UI_HTML: &str = r#"<!DOCTYPE html>
 </head>
 <body>
     <div class="custom-header">
-        <h1>🔗 Chasm API</h1>
+        <h1>🔗 IronBridge API</h1>
         <span class="version">v1.3.0</span>
-        <a href="https://github.com/nervosys/chasm" target="_blank">GitHub →</a>
+        <a href="https://github.com/nervosys/ironbridge" target="_blank">GitHub →</a>
     </div>
     <div id="swagger-ui"></div>
     <script src="https://cdn.jsdelivr.net/npm/swagger-ui-dist@5/swagger-ui-bundle.js"></script>

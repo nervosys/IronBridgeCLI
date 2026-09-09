@@ -8,8 +8,8 @@
 //! - Markdown export/import
 //! - Response text extraction
 
-use chasm::models::{ChatMessage, ChatRequest, ChatSession};
-use chasm::providers::session_format::{
+use ironbridge::models::{ChatMessage, ChatRequest, ChatSession};
+use ironbridge::providers::session_format::{
     markdown_to_session, session_to_markdown, GenericMessage, GenericSession,
 };
 

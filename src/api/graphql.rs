@@ -15,7 +15,7 @@ use std::sync::Arc;
 use super::state::AppState;
 
 /// GraphQL schema type
-pub type ChasmSchema = Schema<QueryRoot, MutationRoot, EmptySubscription>;
+pub type IronBridgeSchema = Schema<QueryRoot, MutationRoot, EmptySubscription>;
 
 // ============================================================================
 // GraphQL Types
@@ -493,7 +493,7 @@ impl MutationRoot {
 
 /// GraphQL endpoint handler
 pub async fn graphql_handler(
-    schema: web::Data<ChasmSchema>,
+    schema: web::Data<IronBridgeSchema>,
     req: GraphQLRequest,
 ) -> GraphQLResponse {
     schema.execute(req.into_inner()).await.into()
@@ -507,21 +507,21 @@ pub async fn graphql_playground() -> impl Responder {
 }
 
 /// GraphQL introspection endpoint
-pub async fn graphql_sdl(schema: web::Data<ChasmSchema>) -> impl Responder {
+pub async fn graphql_sdl(schema: web::Data<IronBridgeSchema>) -> impl Responder {
     HttpResponse::Ok()
         .content_type("text/plain")
         .body(schema.sdl())
 }
 
 /// Create the GraphQL schema
-pub fn create_schema(state: Arc<AppState>) -> ChasmSchema {
+pub fn create_schema(state: Arc<AppState>) -> IronBridgeSchema {
     Schema::build(QueryRoot, MutationRoot, EmptySubscription)
         .data(state)
         .finish()
 }
 
 /// Configure GraphQL routes
-pub fn configure_graphql_routes(cfg: &mut web::ServiceConfig, schema: ChasmSchema) {
+pub fn configure_graphql_routes(cfg: &mut web::ServiceConfig, schema: IronBridgeSchema) {
     cfg.app_data(web::Data::new(schema))
         .service(
             web::resource("/graphql")
@@ -538,7 +538,7 @@ const GRAPHQL_PLAYGROUND_HTML: &str = r#"<!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chasm GraphQL Playground</title>
+    <title>IronBridge GraphQL Playground</title>
     <style>
         body {
             margin: 0;
@@ -584,7 +584,7 @@ const GRAPHQL_PLAYGROUND_HTML: &str = r#"<!DOCTYPE html>
 </head>
 <body>
     <div class="custom-header">
-        <h1>◈ Chasm GraphQL</h1>
+        <h1>◈ IronBridge GraphQL</h1>
         <span class="badge">v1.3.0</span>
         <a href="/docs">REST API →</a>
     </div>

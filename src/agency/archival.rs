@@ -389,7 +389,7 @@ impl Default for ArchivalAgent {
 }
 
 /// System prompt for the archival agent
-const ARCHIVAL_SYSTEM_PROMPT: &str = r#"You are an autonomous session archival agent for Chasm.
+const ARCHIVAL_SYSTEM_PROMPT: &str = r#"You are an autonomous session archival agent for IronBridge.
 
 Your role is to analyze chat sessions and determine which should be archived based on:
 1. Inactivity period (days since last message)

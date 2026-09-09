@@ -501,7 +501,7 @@ impl Default for SearchRefinementAgent {
 }
 
 /// System prompt for the search refinement agent
-const SEARCH_SYSTEM_PROMPT: &str = r#"You are a context-aware search refinement agent for Chasm.
+const SEARCH_SYSTEM_PROMPT: &str = r#"You are a context-aware search refinement agent for IronBridge.
 
 Your role is to help users find relevant chat sessions by:
 1. Understanding the intent behind their search queries

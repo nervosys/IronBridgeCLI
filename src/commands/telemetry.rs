@@ -22,7 +22,7 @@ pub fn telemetry_opt_in() -> Result<()> {
     } else {
         config.opt_in()?;
         println!(
-            "{} Telemetry {} - thank you for helping improve Chasm!",
+            "{} Telemetry {} - thank you for helping improve IronBridge!",
             "[OK]".green().bold(),
             "enabled".green().bold()
         );
@@ -31,7 +31,7 @@ pub fn telemetry_opt_in() -> Result<()> {
     println!();
     println!(
         "To see what data is collected, run: {}",
-        "chasm telemetry info".cyan()
+        "ironbridge telemetry info".cyan()
     );
 
     Ok(())
@@ -59,7 +59,7 @@ pub fn telemetry_opt_out() -> Result<()> {
     println!();
     println!(
         "You can re-enable at any time with: {}",
-        "chasm telemetry opt-in".cyan()
+        "ironbridge telemetry opt-in".cyan()
     );
 
     Ok(())
@@ -93,7 +93,7 @@ pub fn telemetry_info() -> Result<()> {
     println!();
     println!(
         "Use {} to change your preference",
-        "chasm telemetry --help".cyan()
+        "ironbridge telemetry --help".cyan()
     );
 
     Ok(())
@@ -416,7 +416,7 @@ pub fn telemetry_config(
             println!(
                 "{} Ready to sync. Use {}",
                 "[✓]".green(),
-                "chasm telemetry sync".cyan()
+                "ironbridge telemetry sync".cyan()
             );
         } else if config.remote_endpoint.is_some() && config.remote_api_key.is_some() {
             println!();
@@ -430,7 +430,7 @@ pub fn telemetry_config(
             println!("To configure:");
             println!(
                 "  {} {}",
-                "chasm telemetry config".cyan(),
+                "ironbridge telemetry config".cyan(),
                 "--endpoint <URL> --api-key <KEY> --enable-remote"
             );
         }
@@ -487,7 +487,7 @@ pub fn telemetry_test() -> Result<()> {
         println!("{} Remote endpoint not configured", "[ERROR]".red().bold());
         println!(
             "   Use: {}",
-            "chasm telemetry config --endpoint <URL>".cyan()
+            "ironbridge telemetry config --endpoint <URL>".cyan()
         );
         return Ok(());
     }

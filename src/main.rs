@@ -851,7 +851,7 @@ fn print_banner() {
      "Y8888P"  888    888 d88P     888  "Y8888P"  888       888
     "#;
 
-    let subtitle = "CHAt System Manager (Chasm) for Bridging LLM Providers";
+    let subtitle = "CHAt System Manager (IronBridge) for Bridging LLM Providers";
     let tagline = "     Your AI providers and chat sessions, unified";
     let version = format!("                       v{}", env!("CARGO_PKG_VERSION"));
 
@@ -871,7 +871,7 @@ fn print_banner() {
         "[*] Faster than scrolling through old chats",
         "[*] From VS Code to the cloud and back",
         "[*] Built with Rust, powered by caffeine",
-        "[*] Bridging the chasm between your chat sessions",
+        "[*] Bridging the ironbridge between your chat sessions",
     ];
 
     let idx = std::time::SystemTime::now()

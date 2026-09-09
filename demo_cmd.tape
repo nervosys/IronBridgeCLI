@@ -7,18 +7,18 @@ Set Height 600
 Set Theme Dracula
 Set TypingSpeed 50ms
 
-Type "chasm --version"
+Type "ironbridge --version"
 Enter
 Sleep 2s
 
-Type "chasm --help"
+Type "ironbridge --help"
 Enter
 Sleep 3s
 
-Type "chasm harvest scan"
+Type "ironbridge harvest scan"
 Enter
 Sleep 4s
 
-Type "chasm sync --pull --dry-run"
+Type "ironbridge sync --pull --dry-run"
 Enter
 Sleep 5s

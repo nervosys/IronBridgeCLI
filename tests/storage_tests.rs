@@ -8,8 +8,8 @@
 //! - Backup functionality
 
 #[allow(unused_imports)]
-use chasm::models::ChatSession;
-use chasm::models::{ChatSessionIndex, ChatSessionIndexEntry};
+use ironbridge::models::ChatSession;
+use ironbridge::models::{ChatSessionIndex, ChatSessionIndexEntry};
 use std::collections::HashMap;
 use std::fs;
 use std::path::PathBuf;
@@ -60,7 +60,7 @@ fn read_from_db(path: &std::path::Path, key: &str) -> rusqlite::Result<Option<St
 
 mod read_chat_session_index_tests {
     use super::*;
-    use chasm::storage::read_chat_session_index;
+    use ironbridge::storage::read_chat_session_index;
 
     #[test]
     fn test_read_empty_index() {
@@ -166,7 +166,7 @@ mod read_chat_session_index_tests {
 
 mod write_chat_session_index_tests {
     use super::*;
-    use chasm::storage::{read_chat_session_index, write_chat_session_index};
+    use ironbridge::storage::{read_chat_session_index, write_chat_session_index};
 
     #[test]
     fn test_write_empty_index() {
@@ -320,7 +320,7 @@ mod write_chat_session_index_tests {
 
 mod add_session_to_index_tests {
     use super::*;
-    use chasm::storage::{add_session_to_index, read_chat_session_index};
+    use ironbridge::storage::{add_session_to_index, read_chat_session_index};
 
     #[test]
     fn test_add_session_to_empty_index() {
@@ -497,7 +497,7 @@ mod add_session_to_index_tests {
 // ============================================================================
 
 mod vscode_running_tests {
-    use chasm::storage::is_vscode_running;
+    use ironbridge::storage::is_vscode_running;
 
     #[test]
     fn test_is_vscode_running_returns_bool() {
@@ -524,7 +524,7 @@ mod vscode_running_tests {
 
 mod backup_workspace_sessions_tests {
     use super::*;
-    use chasm::storage::backup_workspace_sessions;
+    use ironbridge::storage::backup_workspace_sessions;
 
     #[test]
     fn test_backup_nonexistent_workspace() {
@@ -652,7 +652,7 @@ mod backup_workspace_sessions_tests {
 // ============================================================================
 
 mod get_workspace_storage_db_tests {
-    use chasm::storage::get_workspace_storage_db;
+    use ironbridge::storage::get_workspace_storage_db;
 
     #[test]
     fn test_get_db_path() {
@@ -686,7 +686,7 @@ mod get_workspace_storage_db_tests {
 
 mod register_all_sessions_tests {
     use super::*;
-    use chasm::storage::register_all_sessions_from_directory;
+    use ironbridge::storage::register_all_sessions_from_directory;
 
     #[allow(dead_code)]
     fn create_test_session_file(dir: &std::path::Path, session_id: &str, title: &str) {
@@ -738,8 +738,8 @@ mod register_all_sessions_tests {
 mod storage_error_tests {
     use super::*;
     #[allow(unused_imports)]
-    use chasm::error::CsmError;
-    use chasm::storage::read_chat_session_index;
+    use ironbridge::error::CsmError;
+    use ironbridge::storage::read_chat_session_index;
 
     #[test]
     fn test_read_from_directory() {
@@ -893,7 +893,7 @@ mod index_serialization_tests {
 // ============================================================================
 
 mod empty_window_sessions_tests {
-    use chasm::models::ChatSession;
+    use ironbridge::models::ChatSession;
     use std::fs;
     use tempfile::TempDir;
 

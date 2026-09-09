@@ -58,19 +58,19 @@ impl std::fmt::Display for SdkLanguage {
 // ============================================================================
 
 /// Python SDK template
-pub const PYTHON_SDK_TEMPLATE: &str = r#"# Chasm Python SDK
+pub const PYTHON_SDK_TEMPLATE: &str = r#"# IronBridge Python SDK
 # Auto-generated - Do not edit directly
 # Version: {{version}}
 
 """
-Chasm Python SDK
+IronBridge Python SDK
 
-A Python client library for the Chasm API.
+A Python client library for the IronBridge API.
 
 Usage:
-    from chasm import ChasmClient
+    from ironbridge import IronBridgeClient
     
-    client = ChasmClient(api_key="your-api-key")
+    client = IronBridgeClient(api_key="your-api-key")
     sessions = client.sessions.list()
 """
 
@@ -87,8 +87,8 @@ __api_version__ = "{{api_version}}"
 
 
 @dataclass
-class ChasmConfig:
-    """Configuration for Chasm client."""
+class IronBridgeConfig:
+    """Configuration for IronBridge client."""
     base_url: str = "{{base_url}}"
     api_key: Optional[str] = None
     timeout: int = 30
@@ -134,25 +134,25 @@ class Workspace:
     created_at: Optional[datetime] = None
 
 
-class ChasmError(Exception):
-    """Base exception for Chasm errors."""
+class IronBridgeError(Exception):
+    """Base exception for IronBridge errors."""
     def __init__(self, message: str, status_code: Optional[int] = None, response: Optional[dict] = None):
         super().__init__(message)
         self.status_code = status_code
         self.response = response
 
 
-class AuthenticationError(ChasmError):
+class AuthenticationError(IronBridgeError):
     """Authentication failed."""
     pass
 
 
-class RateLimitError(ChasmError):
+class RateLimitError(IronBridgeError):
     """Rate limit exceeded."""
     pass
 
 
-class NotFoundError(ChasmError):
+class NotFoundError(IronBridgeError):
     """Resource not found."""
     pass
 
@@ -160,13 +160,13 @@ class NotFoundError(ChasmError):
 class ApiClient:
     """Low-level API client."""
     
-    def __init__(self, config: ChasmConfig):
+    def __init__(self, config: IronBridgeConfig):
         self.config = config
         self.session = requests.Session()
         if config.api_key:
             self.session.headers["Authorization"] = f"Bearer {config.api_key}"
         self.session.headers["Content-Type"] = "application/json"
-        self.session.headers["User-Agent"] = f"chasm-python/{__version__}"
+        self.session.headers["User-Agent"] = f"ironbridge-python/{__version__}"
     
     def request(self, method: str, path: str, **kwargs) -> dict:
         """Make an API request."""
@@ -182,7 +182,7 @@ class ApiClient:
         elif response.status_code == 429:
             raise RateLimitError("Rate limit exceeded", 429)
         elif response.status_code >= 400:
-            raise ChasmError(f"API error: {response.text}", response.status_code)
+            raise IronBridgeError(f"API error: {response.text}", response.status_code)
         
         if response.content:
             return response.json()
@@ -316,8 +316,8 @@ class HarvestResource:
         return self._client.get("/api/harvest/status")
 
 
-class ChasmClient:
-    """Main Chasm client."""
+class IronBridgeClient:
+    """Main IronBridge client."""
     
     def __init__(
         self,
@@ -325,8 +325,8 @@ class ChasmClient:
         base_url: Optional[str] = None,
         **kwargs
     ):
-        api_key = api_key or os.environ.get("CHASM_API_KEY")
-        config = ChasmConfig(
+        api_key = api_key or os.environ.get("IRONBRIDGE_API_KEY")
+        config = IronBridgeConfig(
             api_key=api_key,
             base_url=base_url or "{{base_url}}",
             **kwargs
@@ -348,14 +348,14 @@ class ChasmClient:
 
 
 # Convenience function
-def create_client(**kwargs) -> ChasmClient:
-    """Create a Chasm client with environment configuration."""
-    return ChasmClient(**kwargs)
+def create_client(**kwargs) -> IronBridgeClient:
+    """Create a IronBridge client with environment configuration."""
+    return IronBridgeClient(**kwargs)
 "#;
 
 /// Node.js SDK template
 pub const NODEJS_SDK_TEMPLATE: &str = r#"/**
- * Chasm Node.js SDK
+ * IronBridge Node.js SDK
  * Auto-generated - Do not edit directly
  * Version: {{version}}
  */
@@ -368,12 +368,12 @@ const VERSION = '{{version}}';
 const API_VERSION = '{{api_version}}';
 
 /**
- * Chasm client configuration
+ * IronBridge client configuration
  */
-class ChasmConfig {
+class IronBridgeConfig {
   constructor(options = {}) {
-    this.baseUrl = options.baseUrl || process.env.CHASM_BASE_URL || '{{base_url}}';
-    this.apiKey = options.apiKey || process.env.CHASM_API_KEY;
+    this.baseUrl = options.baseUrl || process.env.IRONBRIDGE_BASE_URL || '{{base_url}}';
+    this.apiKey = options.apiKey || process.env.IRONBRIDGE_API_KEY;
     this.timeout = options.timeout || 30000;
     this.retryCount = options.retryCount || 3;
   }
@@ -382,30 +382,30 @@ class ChasmConfig {
 /**
  * Custom error classes
  */
-class ChasmError extends Error {
+class IronBridgeError extends Error {
   constructor(message, statusCode, response) {
     super(message);
-    this.name = 'ChasmError';
+    this.name = 'IronBridgeError';
     this.statusCode = statusCode;
     this.response = response;
   }
 }
 
-class AuthenticationError extends ChasmError {
+class AuthenticationError extends IronBridgeError {
   constructor(message) {
     super(message, 401);
     this.name = 'AuthenticationError';
   }
 }
 
-class NotFoundError extends ChasmError {
+class NotFoundError extends IronBridgeError {
   constructor(message) {
     super(message, 404);
     this.name = 'NotFoundError';
   }
 }
 
-class RateLimitError extends ChasmError {
+class RateLimitError extends IronBridgeError {
   constructor(message) {
     super(message, 429);
     this.name = 'RateLimitError';
@@ -440,7 +440,7 @@ class ApiClient {
       path: url.pathname + url.search,
       headers: {
         'Content-Type': 'application/json',
-        'User-Agent': `chasm-nodejs/${VERSION}`,
+        'User-Agent': `ironbridge-nodejs/${VERSION}`,
         ...(this.config.apiKey && { Authorization: `Bearer ${this.config.apiKey}` }),
       },
       timeout: this.config.timeout,
@@ -458,7 +458,7 @@ class ApiClient {
           } else if (res.statusCode === 429) {
             reject(new RateLimitError('Rate limit exceeded'));
           } else if (res.statusCode >= 400) {
-            reject(new ChasmError(`API error: ${data}`, res.statusCode));
+            reject(new IronBridgeError(`API error: ${data}`, res.statusCode));
           } else {
             resolve(data ? JSON.parse(data) : {});
           }
@@ -468,7 +468,7 @@ class ApiClient {
       req.on('error', reject);
       req.on('timeout', () => {
         req.destroy();
-        reject(new ChasmError('Request timeout'));
+        reject(new IronBridgeError('Request timeout'));
       });
 
       if (options.body) {
@@ -579,11 +579,11 @@ class HarvestResource {
 }
 
 /**
- * Main Chasm client
+ * Main IronBridge client
  */
-class ChasmClient {
+class IronBridgeClient {
   constructor(options = {}) {
-    const config = new ChasmConfig(options);
+    const config = new IronBridgeConfig(options);
     this._api = new ApiClient(config);
 
     this.sessions = new SessionsResource(this._api);
@@ -601,9 +601,9 @@ class ChasmClient {
 }
 
 module.exports = {
-  ChasmClient,
-  ChasmConfig,
-  ChasmError,
+  IronBridgeClient,
+  IronBridgeConfig,
+  IronBridgeError,
   AuthenticationError,
   NotFoundError,
   RateLimitError,
@@ -613,11 +613,11 @@ module.exports = {
 "#;
 
 /// Go SDK template
-pub const GO_SDK_TEMPLATE: &str = r#"// Chasm Go SDK
+pub const GO_SDK_TEMPLATE: &str = r#"// IronBridge Go SDK
 // Auto-generated - Do not edit directly
 // Version: {{version}}
 
-package chasm
+package ironbridge
 
 import (
 	"bytes"
@@ -645,13 +645,13 @@ type Config struct {
 
 // DefaultConfig returns default configuration
 func DefaultConfig() *Config {
-	baseURL := os.Getenv("CHASM_BASE_URL")
+	baseURL := os.Getenv("IRONBRIDGE_BASE_URL")
 	if baseURL == "" {
 		baseURL = "{{base_url}}"
 	}
 	return &Config{
 		BaseURL:    baseURL,
-		APIKey:     os.Getenv("CHASM_API_KEY"),
+		APIKey:     os.Getenv("IRONBRIDGE_API_KEY"),
 		Timeout:    30 * time.Second,
 		RetryCount: 3,
 	}
@@ -682,16 +682,16 @@ type Workspace struct {
 }
 
 // Error types
-type ChasmError struct {
+type IronBridgeError struct {
 	Message    string
 	StatusCode int
 }
 
-func (e *ChasmError) Error() string {
-	return fmt.Sprintf("chasm: %s (status %d)", e.Message, e.StatusCode)
+func (e *IronBridgeError) Error() string {
+	return fmt.Sprintf("ironbridge: %s (status %d)", e.Message, e.StatusCode)
 }
 
-// Client is the main Chasm client
+// Client is the main IronBridge client
 type Client struct {
 	config     *Config
 	httpClient *http.Client
@@ -700,7 +700,7 @@ type Client struct {
 	Harvest    *HarvestService
 }
 
-// NewClient creates a new Chasm client
+// NewClient creates a new IronBridge client
 func NewClient(config *Config) *Client {
 	if config == nil {
 		config = DefaultConfig()
@@ -741,7 +741,7 @@ func (c *Client) request(method, path string, body interface{}, result interface
 	}
 
 	req.Header.Set("Content-Type", "application/json")
-	req.Header.Set("User-Agent", fmt.Sprintf("chasm-go/%s", Version))
+	req.Header.Set("User-Agent", fmt.Sprintf("ironbridge-go/%s", Version))
 	if c.config.APIKey != "" {
 		req.Header.Set("Authorization", "Bearer "+c.config.APIKey)
 	}
@@ -753,7 +753,7 @@ func (c *Client) request(method, path string, body interface{}, result interface
 	defer resp.Body.Close()
 
 	if resp.StatusCode >= 400 {
-		return &ChasmError{
+		return &IronBridgeError{
 			Message:    fmt.Sprintf("API error: %s", resp.Status),
 			StatusCode: resp.StatusCode,
 		}
@@ -951,14 +951,14 @@ impl SdkGenerator {
     /// Get SDK file name for language
     pub fn get_filename(&self, language: &SdkLanguage) -> String {
         match language {
-            SdkLanguage::Python => "chasm.py".to_string(),
-            SdkLanguage::NodeJs => "chasm.js".to_string(),
-            SdkLanguage::Go => "chasm.go".to_string(),
-            SdkLanguage::Rust => "chasm.rs".to_string(),
-            SdkLanguage::Java => "Chasm.java".to_string(),
-            SdkLanguage::CSharp => "Chasm.cs".to_string(),
-            SdkLanguage::Ruby => "chasm.rb".to_string(),
-            SdkLanguage::Php => "Chasm.php".to_string(),
+            SdkLanguage::Python => "ironbridge.py".to_string(),
+            SdkLanguage::NodeJs => "ironbridge.js".to_string(),
+            SdkLanguage::Go => "ironbridge.go".to_string(),
+            SdkLanguage::Rust => "ironbridge.rs".to_string(),
+            SdkLanguage::Java => "IronBridge.java".to_string(),
+            SdkLanguage::CSharp => "IronBridge.cs".to_string(),
+            SdkLanguage::Ruby => "ironbridge.rb".to_string(),
+            SdkLanguage::Php => "IronBridge.php".to_string(),
         }
     }
 }
@@ -984,11 +984,11 @@ mod tests {
         let generator = SdkGenerator::new(config);
 
         let python_sdk = generator.generate(SdkLanguage::Python);
-        assert!(python_sdk.contains("class ChasmClient"));
+        assert!(python_sdk.contains("class IronBridgeClient"));
         assert!(python_sdk.contains("1.0.0"));
 
         let nodejs_sdk = generator.generate(SdkLanguage::NodeJs);
-        assert!(nodejs_sdk.contains("class ChasmClient"));
+        assert!(nodejs_sdk.contains("class IronBridgeClient"));
 
         let go_sdk = generator.generate(SdkLanguage::Go);
         assert!(go_sdk.contains("type Client struct"));

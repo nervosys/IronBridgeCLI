@@ -627,7 +627,7 @@ impl BrandingManager {
             ssl_status: SslStatus::Pending,
             dns_verified: false,
             dns_token: Uuid::new_v4().to_string(),
-            cname_target: "app.chasm.cloud".to_string(),
+            cname_target: "app.ironbridge.cloud".to_string(),
             configured_at: Utc::now(),
             ssl_expires_at: None,
         };

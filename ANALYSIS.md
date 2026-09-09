@@ -7,7 +7,7 @@
 
 ## Executive Summary
 
-Analysis of **100+ community forum threads**, **72 GitHub issues**, and **8 comparable open-source tools** reveals that AI chat session management is a high-demand, underserved market. The #1 pain point — **session loss** — affects users of every major AI coding assistant. No existing tool provides the combination of cross-provider extraction, CLI-native management, and run-and-record that Chasm offers.
+Analysis of **100+ community forum threads**, **72 GitHub issues**, and **8 comparable open-source tools** reveals that AI chat session management is a high-demand, underserved market. The #1 pain point — **session loss** — affects users of every major AI coding assistant. No existing tool provides the combination of cross-provider extraction, CLI-native management, and run-and-record that IronBridge offers.
 
 ---
 
@@ -24,9 +24,9 @@ Aggregated from Cursor community forum threads, GitHub issues across comparable 
 | **#5** | **Workflow Replay & Knowledge Reuse** | **6%**  | Emerging — "Workflow Memory & Replay Across Projects" feature request                   |
 | **#6** | **Long Conversation Management**      | **5%**  | "Cursor stuck", "composer takes long time" threads; Continue has `compactChatHistory()` |
 
-### Chasm Coverage Matrix
+### IronBridge Coverage Matrix
 
-| Use Case               | Chasm Feature | README Section                 | CLI Commands                                                              |
+| Use Case               | IronBridge Feature | README Section                 | CLI Commands                                                              |
 | ---------------------- | ------------- | ------------------------------ | ------------------------------------------------------------------------- |
 | Session Recovery       | ✅ Full        | `🔄 Recover Lost Chat Sessions` | `fetch path`, `detect orphaned --recover`, `register all`, `recover scan` |
 | Chat Export            | ✅ Full        | `📊 Harvest & Search > Export`  | `export path`, `export batch`, `sync --pull/--push`                       |
@@ -51,7 +51,7 @@ Aggregated from Cursor community forum threads, GitHub issues across comparable 
 | chatgpt-exporter    | 2.2K  | Tampermonkey ChatGPT export     | ✅ (5 formats)                | ❌              | ❌     | ❌                |
 | SpecStory           | ~800  | Cursor chat auto-save extension | ✅ (MD)                       | ❌              | ❌     | ❌                |
 | cursor-chat-browser | ~300  | Browse Cursor chat DB           | ✅ (JSON, MD)                 | ❌              | ❌     | ❌                |
-| **Chasm**           | —     | **Universal CLI manager**       | **✅ (JSON, MD, CSV, JSONL)** | **✅**          | **✅** | **✅**            |
+| **IronBridge**           | —     | **Universal CLI manager**       | **✅ (JSON, MD, CSV, JSONL)** | **✅**          | **✅** | **✅**            |
 
 ### Capability Gap Analysis
 
@@ -67,7 +67,7 @@ ChatHub              ·          ✓        ·        ✓         ·        ·
 chatgpt-exporter     ·          ✓        ·        ·         ·        ·
 SpecStory            ·          ✓        ·        ·         ·        ·
 ───────────────────────────────────────────────────────────────────────
-Chasm                ✓          ✓        ✓        ✓         ✓        ✓
+IronBridge                ✓          ✓        ✓        ✓         ✓        ✓
 
 ✓ = Full support   △ = Partial   · = Not supported
 ```
@@ -78,15 +78,15 @@ Chasm                ✓          ✓        ✓        ✓         ✓        �
 
 From 100+ Cursor community forum threads and GitHub issues, five triggers cause session loss:
 
-| Trigger                          | Reported Frequency | Typical User Quote                                                                 | Chasm Solution                                   |
+| Trigger                          | Reported Frequency | Typical User Quote                                                                 | IronBridge Solution                                   |
 | -------------------------------- | ------------------ | ---------------------------------------------------------------------------------- | ------------------------------------------------ |
-| **Project folder renamed/moved** | 12+ threads        | "Chat History Inaccessible After Renaming or Moving a Cursor Project Directory"    | `chasm detect orphaned --recover`                |
-| **Editor update wiped state**    | 10+ threads        | "After update… lost all settings and chats"                                        | `chasm harvest run` (proactive backup)           |
-| **Editor crash/hang**            | 10+ threads        | "Upon the Editor's crashing, I lost all of my chat history for ALL of my projects" | `chasm run` (real-time recording)                |
-| **Workspace not saved/opened**   | 8+ threads         | "Lost my chat history for not saving the project"                                  | `chasm fetch path`                               |
+| **Project folder renamed/moved** | 12+ threads        | "Chat History Inaccessible After Renaming or Moving a Cursor Project Directory"    | `ironbridge detect orphaned --recover`                |
+| **Editor update wiped state**    | 10+ threads        | "After update… lost all settings and chats"                                        | `ironbridge harvest run` (proactive backup)           |
+| **Editor crash/hang**            | 10+ threads        | "Upon the Editor's crashing, I lost all of my chat history for ALL of my projects" | `ironbridge run` (real-time recording)                |
+| **Workspace not saved/opened**   | 8+ threads         | "Lost my chat history for not saving the project"                                  | `ironbridge fetch path`                               |
 | **Accidental chat deletion**     | 5+ threads         | "I accidentally deleted an important chat — how can I recover it?"                 | DB-backed persistence via `harvest`              |
-| **Username/path change**         | 4+ threads         | "Changed username, final path was modified, chat history lost"                     | `chasm detect orphaned` resolves hash mismatches |
-| **Cross-device/SSH**             | 4+ threads         | "Chat across multiple PCs (apart from SpecStory)"                                  | `chasm sync --pull --push`                       |
+| **Username/path change**         | 4+ threads         | "Changed username, final path was modified, chat history lost"                     | `ironbridge detect orphaned` resolves hash mismatches |
+| **Cross-device/SSH**             | 4+ threads         | "Chat across multiple PCs (apart from SpecStory)"                                  | `ironbridge sync --pull --push`                       |
 
 ### Forum Quote Highlights
 
@@ -108,7 +108,7 @@ From 100+ Cursor community forum threads and GitHub issues, five triggers cause 
 
 Aggregated from chatgpt-exporter downloads, ctxport feature list, SpecStory usage, Continue.dev exports, and Cursor forum requests.
 
-| Format           | Demand Level  | Primary Use Case                        | Chasm Support   |
+| Format           | Demand Level  | Primary Use Case                        | IronBridge Support   |
 | ---------------- | ------------- | --------------------------------------- | --------------- |
 | **Markdown**     | ★★★★★ Highest | Documentation, sharing, version control | ✅ via export    |
 | **JSON / JSONL** | ★★★★☆ High    | Interoperability, fine-tuning, tooling  | ✅ native format |
@@ -123,30 +123,30 @@ Aggregated from chatgpt-exporter downloads, ctxport feature list, SpecStory usag
 
 ### 5a. Workflow Memory & Replay (Growing Demand)
 
-Users want to capture successful complex workflows (auth setup, CI/CD, feature patterns) and replay them in new projects. This is Chasm's agentic coding capability.
+Users want to capture successful complex workflows (auth setup, CI/CD, feature patterns) and replay them in new projects. This is IronBridge's agentic coding capability.
 
 > "When Cursor Agent successfully completes a complex task, there's no way to capture that workflow and reuse it."
 > — Cursor forum, "Workflow Memory & Replay Across Projects"
 
-**Chasm addresses this with:**
-- `chasm agency run` — reusable coding workflows with any LLM
-- `chasm harvest search` — find past successful patterns
-- `chasm export` — extract and share workflows as portable JSON
+**IronBridge addresses this with:**
+- `ironbridge agency run` — reusable coding workflows with any LLM
+- `ironbridge harvest search` — find past successful patterns
+- `ironbridge export` — extract and share workflows as portable JSON
 
 ### 5b. Fine-tuning Data Collection
 
-Multiple forum threads ask about exporting AI conversations for personal model fine-tuning. Chasm's universal JSON format and JSONL export are ideal for this.
+Multiple forum threads ask about exporting AI conversations for personal model fine-tuning. IronBridge's universal JSON format and JSONL export are ideal for this.
 
 ### 5c. Unified Cross-Project Chat View
 
 > "As a software engineer frequently balancing multiple projects simultaneously… the chat history and Composer sessions are isolated to their respective windows."
 > — Cursor forum, "Create a unified chat history view across all projects"
 
-**Chasm addresses this with:**
-- `chasm harvest run` — aggregates all projects into one database
-- `chasm harvest search` — searches across all projects
-- `chasm list workspaces` — unified workspace view
-- `chasm run tui` — interactive browser across all sessions
+**IronBridge addresses this with:**
+- `ironbridge harvest run` — aggregates all projects into one database
+- `ironbridge harvest search` — searches across all projects
+- `ironbridge list workspaces` — unified workspace view
+- `ironbridge run tui` — interactive browser across all sessions
 
 ---
 
@@ -171,7 +171,7 @@ Multiple forum threads ask about exporting AI conversations for personal model f
 
 1. **Chat export is the #1 unmet need** in the AI coding assistant space. Cursor (32K+ stars) had zero built-in export until very recently (manual MD export only), generating massive user frustration and spawning 10+ community tools.
 
-2. **Session persistence tied to file paths is broken by design.** Users rename/move projects constantly. Every editor that ties history to path hashes generates recovery issues. Chasm's `detect orphaned` directly solves this.
+2. **Session persistence tied to file paths is broken by design.** Users rename/move projects constantly. Every editor that ties history to path hashes generates recovery issues. IronBridge's `detect orphaned` directly solves this.
 
 3. **No existing tool provides all three of:**
    - Cross-provider extraction (Copilot + Cursor + local LLMs)
@@ -180,7 +180,7 @@ Multiple forum threads ask about exporting AI conversations for personal model f
 
 4. **Markdown is the universal lingua franca** for conversation export. Every tool that supports export supports markdown first.
 
-5. **The gap between "wrapper apps" and "session managers"** is where Chasm sits. No tool currently provides a universal, tool-agnostic session capture and management layer that works across all AI coding assistants simultaneously.
+5. **The gap between "wrapper apps" and "session managers"** is where IronBridge sits. No tool currently provides a universal, tool-agnostic session capture and management layer that works across all AI coding assistants simultaneously.
 
 6. **Agentic coding is the growth vector.** As AI coding assistants evolve from chat to agents, the need for session persistence, workflow replay, and cross-provider portability will compound.
 
@@ -191,11 +191,11 @@ Multiple forum threads ask about exporting AI conversations for personal model f
 - **Cursor forum analysis:** Searched `forum.cursor.com` for "chat history export" (50+ results), "lost chat history" (50+ results), categorized by type
 - **GitHub topic analysis:** Scraped `github.com/topics/` for `chat-history` (64 repos), `ai-chat` (248 repos), `chatgpt-export` (7 repos)
 - **Tool analysis:** Deep-dived source code and documentation for Continue.dev, Khoj, ChatHub, chatgpt-exporter, SpecStory, cursor-chat-browser
-- **Feature matrix:** Compared capabilities across 8 tools + Chasm
+- **Feature matrix:** Compared capabilities across 8 tools + IronBridge
 - **Demand weighting:** Combined forum thread counts, GitHub stars, issue counts, and feature request frequency
 
 ---
 
-*Analysis conducted for nervosys/chasm-cli project positioning.*
+*Analysis conducted for nervosys/ironbridge-cli project positioning.*
 *Data sourced from public GitHub repositories and community forums.*
 *Last updated: February 2026*

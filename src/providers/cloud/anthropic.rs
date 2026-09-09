@@ -177,7 +177,7 @@ impl CloudProvider for AnthropicProvider {
         if !provider.is_authenticated() {
             return Err(anyhow!(
                 "Claude requires authentication. Provide a session token from browser cookies.\n\
-                Run 'chasm harvest scan --web' to check browser authentication status."
+                Run 'ironbridge harvest scan --web' to check browser authentication status."
             ));
         }
 

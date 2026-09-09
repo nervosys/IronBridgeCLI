@@ -9,7 +9,7 @@
 //! - SessionWithPath
 //! - WorkspaceJson
 
-use chasm::models::{
+use ironbridge::models::{
     ChatMessage, ChatRequest, ChatSession, ChatSessionIndex, ChatSessionIndexEntry,
     SessionWithPath, Workspace, WorkspaceJson,
 };

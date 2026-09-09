@@ -25,14 +25,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - **Multi-Provider Support for Forensic Tools** - Extend session forensics across all providers
   - Supported providers: VS Code (Copilot), Cursor, ClaudeCode, OpenCode, OpenClaw, Antigravity
-  - `chasm list sessions --provider <name>` - Filter sessions by provider
-  - `chasm list sessions --all-providers` - List sessions from all providers
-  - `chasm list agents --provider <name>` - Filter agent sessions by provider
-  - `chasm list agents -p all` - List agent sessions from all providers  
-  - `chasm show timeline --provider <name>` - Show timeline for specific provider
-  - `chasm show timeline --all-providers` - Aggregate timeline across all providers
-  - `chasm find session --provider <name>` - Search within specific provider
-  - `chasm find session --all-providers` - Search across all providers
+  - `ironbridge list sessions --provider <name>` - Filter sessions by provider
+  - `ironbridge list sessions --all-providers` - List sessions from all providers
+  - `ironbridge list agents --provider <name>` - Filter agent sessions by provider
+  - `ironbridge list agents -p all` - List agent sessions from all providers  
+  - `ironbridge show timeline --provider <name>` - Show timeline for specific provider
+  - `ironbridge show timeline --all-providers` - Aggregate timeline across all providers
+  - `ironbridge find session --provider <name>` - Search within specific provider
+  - `ironbridge find session --all-providers` - Search across all providers
   - Provider column added to output tables when multiple providers are shown
   - Provider aliases: `vscode`/`copilot`, `cursor`, `claudecode`/`claude`, `opencode`, `openclaw`/`claw`, `antigravity`/`ag`
 
@@ -42,25 +42,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Backward compatible with legacy JSON format
 
 - **Agent Mode Session Tools**
-  - `chasm list agents [--size]` - List Copilot Edits / chatEditingSessions
-  - `chasm show agent <id>` - Show agent session details
+  - `ironbridge list agents [--size]` - List Copilot Edits / chatEditingSessions
+  - `ironbridge show agent <id>` - Show agent session details
   
 - **Timeline Visualization**
-  - `chasm show timeline [--agents]` - Visualize session activity with gap detection
+  - `ironbridge show timeline [--agents]` - Visualize session activity with gap detection
   - Shows recent activity bars and identifies periods of inactivity
   - Helps identify missing or lost sessions
 
 - **Session Search Enhancements**
-  - `chasm find session --date YYYY-MM-DD` - Filter by internal message timestamp
-  - `chasm find session --all` - Search across all workspaces
-  - `chasm list sessions --size` - Show file size column
+  - `ironbridge find session --date YYYY-MM-DD` - Filter by internal message timestamp
+  - `ironbridge find session --all` - Search across all workspaces
+  - `ironbridge list sessions --size` - Show file size column
 
 ## [1.0.1] - 2026-01-17
 
 ### Added
 
 - **Orphaned Session Detection** - Find and recover sessions from orphaned workspace hashes
-  - `chasm detect orphaned [PATH]` - Scan for all workspace hashes matching a project path
+  - `ironbridge detect orphaned [PATH]` - Scan for all workspace hashes matching a project path
   - Shows active vs orphaned workspaces with session counts and details
   - `--recover` flag automatically copies orphaned sessions to the active workspace
   - Helps recover valuable chat history when VS Code creates new workspace hashes

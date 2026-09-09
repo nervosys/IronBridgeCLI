@@ -1,4 +1,4 @@
-# VHS Demo for Chasm CLI
+# VHS Demo for IronBridge CLI
 # https://github.com/charmbracelet/vhs
 
 Output demo.gif
@@ -11,27 +11,27 @@ Set Theme Dracula
 Set TypingSpeed 40ms
 
 # Show version
-Type "chasm --version"
+Type "ironbridge --version"
 Enter
 Sleep 1500ms
 
 # Show help
-Type "chasm --help"
+Type "ironbridge --help"
 Enter
 Sleep 3s
 
 # List workspaces
-Type "chasm list workspaces"
+Type "ironbridge list workspaces"
 Enter
 Sleep 3s
 
 # Sync sessions
-Type "chasm sync --pull --dry-run 2>&1 | Select-Object -First 20"
+Type "ironbridge sync --pull --dry-run 2>&1 | Select-Object -First 20"
 Enter
 Sleep 4s
 
 # Harvest scan
-Type "chasm harvest scan"
+Type "ironbridge harvest scan"
 Enter
 Sleep 3s
 

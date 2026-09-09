@@ -11,13 +11,13 @@
 //!
 //! Run with: cargo run --example local_providers
 
-use chasm::providers::discovery::discover_all_providers;
-use chasm::providers::ollama::OllamaProvider;
-use chasm::providers::openai_compat::OpenAICompatProvider;
-use chasm::providers::{
+use ironbridge::providers::discovery::discover_all_providers;
+use ironbridge::providers::ollama::OllamaProvider;
+use ironbridge::providers::openai_compat::OpenAICompatProvider;
+use ironbridge::providers::{
     ChatProvider, CsmConfig, GenericMessage, GenericSession, ProviderConfig, ProviderType,
 };
-use chasm::workspace::discover_workspaces;
+use ironbridge::workspace::discover_workspaces;
 
 fn main() -> anyhow::Result<()> {
     println!("=== CSM Local Provider Examples ===\n");
@@ -199,7 +199,7 @@ fn main() -> anyhow::Result<()> {
     println!("   Provider: {:?}", generic_session.provider);
 
     // Convert to VS Code ChatSession format
-    let chat_session: chasm::models::ChatSession = generic_session.clone().into();
+    let chat_session: ironbridge::models::ChatSession = generic_session.clone().into();
     println!("\n   Converted to ChatSession:");
     println!("   Session ID: {:?}", chat_session.session_id);
     println!("   Requests: {}", chat_session.requests.len());

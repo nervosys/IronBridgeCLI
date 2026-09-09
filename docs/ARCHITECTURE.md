@@ -1,12 +1,12 @@
-# Chasm CLI Architecture
+# IronBridge CLI Architecture
 
-This document provides an overview of the Chasm CLI architecture.
+This document provides an overview of the IronBridge CLI architecture.
 
 ## High-Level Architecture
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                              CHASM CLI                                       │
+│                              IRONBRIDGE CLI                                       │
 ├─────────────────────────────────────────────────────────────────────────────┤
 │                                                                             │
 │  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐       │

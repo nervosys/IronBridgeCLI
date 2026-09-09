@@ -25,7 +25,7 @@ Paste any error messages here
 
 ## Environment
 - OS: [e.g., Windows 11, macOS 14, Ubuntu 22.04]
-- Chasm version: [e.g., 1.0.0]
+- IronBridge version: [e.g., 1.0.0]
 - Rust version: [e.g., 1.75.0]
 
 ## Additional context

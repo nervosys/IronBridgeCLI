@@ -1,8 +1,8 @@
 openapi: 3.0.3
 info:
-  title: Chasm API
+  title: IronBridge API
   description: |
-    REST API for Chasm (Chat Session Manager) - a unified platform for harvesting, 
+    REST API for IronBridge (Chat Session Manager) - a unified platform for harvesting, 
     managing, and analyzing AI chat sessions across multiple providers and tools.
 
     ## Authentication
@@ -20,7 +20,7 @@ info:
   version: 1.3.0
   contact:
     name: Nervosys LLC
-    url: https://github.com/nervosys/chasm
+    url: https://github.com/nervosys/ironbridge
   license:
     name: Apache 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
@@ -28,7 +28,7 @@ info:
 servers:
   - url: http://localhost:8787/api/v1
     description: Local development server
-  - url: https://api.chasm.io/v1
+  - url: https://api.ironbridge.io/v1
     description: Production server (when deployed)
 
 tags:

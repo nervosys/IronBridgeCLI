@@ -1,21 +1,21 @@
 [package]
-name = "chasm-cli"
+name = "ironbridge-cli"
 version = "1.3.2"
 edition = "2021"
 rust-version = "1.85"
 description = "Universal chat session manager - harvest, merge, and analyze AI chat history from VS Code, Cursor, and other editors"
 authors = ["Nervosys LLC <hello@nervosys.ai>"]
 license = "AGPL-3.0-only"
-repository = "https://github.com/nervosys/chasm-cli"
-homepage = "https://github.com/nervosys/chasm-cli"
-documentation = "https://docs.rs/chasm-cli"
+repository = "https://github.com/nervosys/ironbridge-cli"
+homepage = "https://github.com/nervosys/ironbridge-cli"
+documentation = "https://docs.rs/ironbridge-cli"
 readme = "README.md"
 keywords = ["chat", "ai", "copilot", "session", "history"]
 categories = ["command-line-utilities", "development-tools", "database"]
 exclude = ["target/", "tests/fixtures/", ".github/", "*.db", "*.log"]
 
 [lib]
-name = "chasm"
+name = "ironbridge"
 
 [features]
 enterprise = []
@@ -135,7 +135,7 @@ assert_cmd = "2.0"
 predicates = "3.0"
 
 [[bin]]
-name = "chasm"
+name = "ironbridge"
 path = "src/main.rs"
 
 [[bin]]

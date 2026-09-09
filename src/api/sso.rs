@@ -41,7 +41,7 @@ pub struct SamlIdpConfig {
     pub enabled: bool,
     /// Organization/tenant ID this IdP is associated with
     pub organization_id: Option<String>,
-    /// Attribute mappings (IdP attribute -> Chasm field)
+    /// Attribute mappings (IdP attribute -> IronBridge field)
     pub attribute_mappings: AttributeMappings,
     /// Default subscription tier for users from this IdP
     pub default_tier: SubscriptionTier,
@@ -53,7 +53,7 @@ pub struct SamlIdpConfig {
     pub updated_at: i64,
 }
 
-/// Attribute mappings from IdP to Chasm user fields
+/// Attribute mappings from IdP to IronBridge user fields
 #[derive(Debug, Clone, Serialize, Deserialize, Default)]
 pub struct AttributeMappings {
     /// Attribute containing the user's email
@@ -101,10 +101,10 @@ impl Default for SamlIdpConfig {
 // SAML Service Provider Configuration
 // =============================================================================
 
-/// Service Provider (Chasm) configuration
+/// Service Provider (IronBridge) configuration
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct SamlSpConfig {
-    /// Entity ID of Chasm as a Service Provider
+    /// Entity ID of IronBridge as a Service Provider
     pub entity_id: String,
     /// Assertion Consumer Service URL
     pub acs_url: String,
@@ -617,9 +617,9 @@ impl SsoService {
             Location="{slo_url}"/>
     </SPSSODescriptor>
     <Organization>
-        <OrganizationName xml:lang="en">Chasm</OrganizationName>
-        <OrganizationDisplayName xml:lang="en">Chasm - Chat Session Manager</OrganizationDisplayName>
-        <OrganizationURL xml:lang="en">https://github.com/nervosys/chasm</OrganizationURL>
+        <OrganizationName xml:lang="en">IronBridge</OrganizationName>
+        <OrganizationDisplayName xml:lang="en">IronBridge - Chat Session Manager</OrganizationDisplayName>
+        <OrganizationURL xml:lang="en">https://github.com/nervosys/ironbridge</OrganizationURL>
     </Organization>
 </EntityDescriptor>"#,
             entity_id = self.sp_config.entity_id,

@@ -3,7 +3,7 @@
 //! Run provider commands with automatic session recording
 //!
 //! Launches AI provider CLIs/APIs with a recording wrapper that captures
-//! all messages to Chasm's universal database, preventing data loss.
+//! all messages to IronBridge's universal database, preventing data loss.
 
 use anyhow::{Context, Result};
 use chrono::Utc;
@@ -25,7 +25,7 @@ fn get_db_path() -> Result<PathBuf> {
     }
     let data_dir = dirs::data_dir()
         .unwrap_or_else(|| PathBuf::from("."))
-        .join("chasm");
+        .join("ironbridge");
     std::fs::create_dir_all(&data_dir)?;
     Ok(data_dir.join("chat_sessions.db"))
 }
@@ -127,7 +127,7 @@ fn print_banner(provider: &str, model: Option<&str>, workspace: Option<&str>) {
     println!(
         "{} {} {}",
         "◈".cyan().bold(),
-        "CHASM".cyan().bold(),
+        "IRONBRIDGE".cyan().bold(),
         format!("// Recording {} session", provider).dimmed()
     );
     if let Some(m) = model {
@@ -137,7 +137,7 @@ fn print_banner(provider: &str, model: Option<&str>, workspace: Option<&str>) {
         println!("  {} {}", "Workspace:".dimmed(), w.white());
     }
     println!(
-        "  {} All messages will be auto-saved to Chasm's database",
+        "  {} All messages will be auto-saved to IronBridge's database",
         "⏺".red().bold()
     );
     println!();

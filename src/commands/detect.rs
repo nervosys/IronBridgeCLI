@@ -672,14 +672,14 @@ pub fn detect_orphaned(path: Option<&str>, recover: bool) -> Result<()> {
             println!(
                 "\n{} Run {} to make them visible in VS Code",
                 "[i]".cyan(),
-                "chasm register all --force".cyan()
+                "ironbridge register all --force".cyan()
             );
         } else {
             println!(
                 "\n{} To recover, run: {}",
                 "[->]".cyan(),
                 format!(
-                    "chasm detect orphaned --recover --path \"{}\"",
+                    "ironbridge detect orphaned --recover --path \"{}\"",
                     project_path
                 )
                 .cyan()

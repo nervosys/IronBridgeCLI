@@ -1,6 +1,6 @@
-# Contributing to Chasm
+# Contributing to IronBridge
 
-Thank you for your interest in contributing to Chasm! This document provides guidelines and information for contributors.
+Thank you for your interest in contributing to IronBridge! This document provides guidelines and information for contributors.
 
 ## Table of Contents
 
@@ -22,12 +22,12 @@ This project adheres to a [Code of Conduct](CODE_OF_CONDUCT.md). By participatin
 1. **Fork the repository** on GitHub
 2. **Clone your fork** locally:
    ```bash
-   git clone https://github.com/YOUR_USERNAME/chasm-cli.git
-   cd chasm-cli
+   git clone https://github.com/YOUR_USERNAME/ironbridge-cli.git
+   cd ironbridge-cli
    ```
 3. **Add the upstream remote**:
    ```bash
-   git remote add upstream https://github.com/nervosys/chasm-cli.git
+   git remote add upstream https://github.com/nervosys/ironbridge-cli.git
    ```
 
 ## How to Contribute
@@ -88,7 +88,7 @@ cargo build --features "feature_name"
 ### Project Structure
 
 ```
-chasm/
+ironbridge/
 ├── src/
 │   ├── main.rs          # CLI entry point
 │   ├── lib.rs           # Library exports
@@ -206,9 +206,9 @@ See existing providers for reference implementations.
 
 ## License
 
-Chasm is dual-licensed under the **AGPL v3** (open source) and a **commercial license**.
+IronBridge is dual-licensed under the **AGPL v3** (open source) and a **commercial license**.
 
-By contributing to Chasm, you agree that your contributions will be licensed under the AGPL v3 and that Nervosys LLC may also offer your contributions under the commercial license. This is standard practice for dual-licensed projects and is necessary to maintain the dual-licensing model.
+By contributing to IronBridge, you agree that your contributions will be licensed under the AGPL v3 and that Nervosys LLC may also offer your contributions under the commercial license. This is standard practice for dual-licensed projects and is necessary to maintain the dual-licensing model.
 
 ### Developer Certificate of Origin
 
@@ -228,10 +228,10 @@ Signed-off-by: Your Name <your.email@example.com>
 
 ## Questions?
 
-- Open a [GitHub Discussion](https://github.com/nervosys/chasm-cli/discussions) for general questions
-- Check [existing issues](https://github.com/nervosys/chasm-cli/issues) for known problems
-- Read the [documentation](https://docs.rs/chasm-cli) for API details
+- Open a [GitHub Discussion](https://github.com/nervosys/ironbridge-cli/discussions) for general questions
+- Check [existing issues](https://github.com/nervosys/ironbridge-cli/issues) for known problems
+- Read the [documentation](https://docs.rs/ironbridge-cli) for API details
 
-Thank you for contributing to Chasm! 🎉
+Thank you for contributing to IronBridge! 🎉
 
 

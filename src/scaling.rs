@@ -82,7 +82,7 @@ impl Default for ShardingConfig {
             shards: vec![ShardConfig {
                 id: "default".to_string(),
                 name: "Default Shard".to_string(),
-                connection_string: "sqlite://chasm.db".to_string(),
+                connection_string: "sqlite://ironbridge.db".to_string(),
                 weight: 100,
                 active: true,
                 region: None,

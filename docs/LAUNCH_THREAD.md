@@ -1,4 +1,4 @@
-# Chasm Launch Thread — X / Twitter
+# IronBridge Launch Thread — X / Twitter
 
 > **Instructions:** Post tweet 1, then reply to it with tweet 2, reply to tweet 2 with tweet 3, etc. Each tweet is ≤280 characters unless noted. Suggested images/media are marked with 🖼️.
 
@@ -14,21 +14,21 @@ Cursor crash? Gone.
 
 We analyzed 100+ forum threads. Session loss is the #1 pain point across every AI coding assistant.
 
-So we built Chasm. 🔗
+So we built IronBridge. 🔗
 
 🖼️ *Attach: banner.png*
 
 ---
 
-### 2/12 — What is Chasm
+### 2/12 — What is IronBridge
 
-Chasm is an open-source CLI that harvests, recovers, and unifies your AI chat sessions across every provider.
+IronBridge is an open-source CLI that harvests, recovers, and unifies your AI chat sessions across every provider.
 
 Copilot · Cursor · Windsurf · Claude · ChatGPT · Ollama · 20+ more.
 
 One command. All your history. Never lost again.
 
-`cargo install chasm-cli`
+`cargo install ironbridge-cli`
 
 🖼️ *Attach: demo.svg (or screen recording GIF)*
 
@@ -39,15 +39,15 @@ One command. All your history. Never lost again.
 The #1 use case: recover lost sessions.
 
 ```
-chasm fetch path /path/to/project
+ironbridge fetch path /path/to/project
 ```
 
 That's it. Sessions reappear in VS Code's Chat dropdown.
 
-Renamed your project folder? Chasm finds orphaned sessions too:
+Renamed your project folder? IronBridge finds orphaned sessions too:
 
 ```
-chasm detect orphaned --recover /path/to/project
+ironbridge detect orphaned --recover /path/to/project
 ```
 
 50+ Cursor forum threads asked for exactly this. Zero tools solved it—until now.
@@ -58,12 +58,12 @@ chasm detect orphaned --recover /path/to/project
 
 Every AI tool stores history differently. Copilot uses SQLite + JSONL. Cursor uses a proprietary format. Claude is web-only.
 
-Chasm harvests them all into one searchable database:
+IronBridge harvests them all into one searchable database:
 
 ```
-chasm harvest scan
-chasm harvest run
-chasm harvest search "auth implementation"
+ironbridge harvest scan
+ironbridge harvest run
+ironbridge harvest search "auth implementation"
 ```
 
 Export to JSON, Markdown, CSV, or JSONL. Your conversations, your data.
@@ -75,10 +75,10 @@ Export to JSON, Markdown, CSV, or JSONL. Your conversations, your data.
 Chat with any AI provider from your terminal. Every message is auto-saved. No more lost sessions from editor crashes.
 
 ```
-chasm run ollama -m codellama
-chasm run claude
-chasm run chatgpt -m gpt-4o
-chasm run claudecode --workspace ./project
+ironbridge run ollama -m codellama
+ironbridge run claude
+ironbridge run chatgpt -m gpt-4o
+ironbridge run claudecode --workspace ./project
 ```
 
 Real-time recording via REST + WebSocket ensures nothing is lost—even mid-stream.
@@ -91,7 +91,7 @@ Switch from Copilot to Cursor? Cursor to Claude? Local Ollama to cloud GPT-4o?
 
 Your entire conversation history comes with you.
 
-Chasm normalizes every provider into a universal session format. Import, export, search, and continue—regardless of source.
+IronBridge normalizes every provider into a universal session format. Import, export, search, and continue—regardless of source.
 
 No more starting from zero when you switch tools.
 
@@ -102,9 +102,9 @@ No more starting from zero when you switch tools.
 Like Claude Code, but provider-agnostic.
 
 ```
-chasm agency run "Add error handling to main.rs"
-chasm agency run -m ollama/codellama "Write tests for lib.rs"
-chasm agency run --orchestration swarm "Build a REST API"
+ironbridge agency run "Add error handling to main.rs"
+ironbridge agency run -m ollama/codellama "Write tests for lib.rs"
+ironbridge agency run --orchestration swarm "Build a REST API"
 ```
 
 Single agent. Multi-agent swarm. Parallel execution. Hierarchical delegation. Debate mode.
@@ -118,8 +118,8 @@ Use any model. Keep all history.
 Long-running projects scatter sessions across workspaces, branches, and providers.
 
 ```
-chasm merge path /path/to/project
-chasm merge all
+ironbridge merge path /path/to/project
+ironbridge merge all
 ```
 
 Consolidate dozens of fragmented sessions into a coherent timeline. Essential for team handoffs and context loading.
@@ -136,7 +136,7 @@ Our market analysis (public in the repo):
 📊 chatgpt-exporter: 2.2K ★, 92 releases over 4 years
 📊 0 tools that do recovery + export + search + run-and-record
 
-Chasm is the first.
+IronBridge is the first.
 
 ---
 
@@ -156,7 +156,7 @@ MSRV: Rust 1.85
 
 ### 11/12 — Ecosystem
 
-Chasm isn't just a CLI:
+IronBridge isn't just a CLI:
 
 🖥️ Desktop app (Tauri 2)
 🌐 Web dashboard (Vite + React)
@@ -173,14 +173,14 @@ All open source. All in one monorepo.
 ### 12/12 — Get started
 
 ```
-cargo install chasm-cli
-chasm harvest scan
-chasm fetch path /path/to/your/project
+cargo install ironbridge-cli
+ironbridge harvest scan
+ironbridge fetch path /path/to/your/project
 ```
 
-⭐ Star us: github.com/nervosys/chasm-cli
-📖 Docs: docs.rs/chasm-cli
-💬 Discussions: github.com/nervosys/chasm-cli/discussions
+⭐ Star us: github.com/nervosys/ironbridge-cli
+📖 Docs: docs.rs/ironbridge-cli
+💬 Discussions: github.com/nervosys/ironbridge-cli/discussions
 
 Built by @nervosys
 
@@ -190,8 +190,8 @@ Your AI history deserves better than a locked SQLite file buried in AppData.
 
 ## Alt-text for accessibility
 
-- **Banner image:** "Chasm — Chat Session Manager. Bridging the divide between AI providers. Terminal CLI interface showing session recovery and harvest commands."
-- **Demo SVG:** "Animated terminal recording showing chasm fetch path recovering lost sessions, chasm run ollama launching a chat, and chasm harvest search finding results across providers."
+- **Banner image:** "IronBridge — Chat Session Manager. Bridging the divide between AI providers. Terminal CLI interface showing session recovery and harvest commands."
+- **Demo SVG:** "Animated terminal recording showing ironbridge fetch path recovering lost sessions, ironbridge run ollama launching a chat, and ironbridge harvest search finding results across providers."
 
 ## Hashtags (rotate across tweets)
 
@@ -212,5 +212,5 @@ Your AI history deserves better than a locked SQLite file buried in AppData.
 
 - **LinkedIn:** Condense to 3–4 paragraphs + banner image
 - **Reddit:** r/rust, r/programming, r/vscode, r/ChatGPT — use a single post, not a thread
-- **Hacker News:** "Show HN: Chasm — recover, harvest, and unify AI chat sessions (Rust CLI)"
+- **Hacker News:** "Show HN: IronBridge — recover, harvest, and unify AI chat sessions (Rust CLI)"
 - **Dev.to / Hashnode:** Expand into a blog post with the ANALYSIS.md data

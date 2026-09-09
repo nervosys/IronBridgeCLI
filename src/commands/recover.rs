@@ -163,7 +163,7 @@ pub fn recover_scan(provider: &str, verbose: bool, _include_old: bool) -> Result
 
     if total_corrupted > 0 {
         println!();
-        println!("[i] Use 'chasm recover jsonl <file>' to attempt repair of corrupted files");
+        println!("[i] Use 'ironbridge recover jsonl <file>' to attempt repair of corrupted files");
     }
 
     Ok(())
@@ -234,7 +234,7 @@ pub fn recover_from_recording(server: &str, session_id: Option<&str>, output: Op
             
             println!("╚═══════════════════════════════════════════════════════════════════╝");
             println!();
-            println!("[i] Use 'chasm recover recording --session <ID>' to recover a specific session");
+            println!("[i] Use 'ironbridge recover recording --session <ID>' to recover a specific session");
         } else {
             println!("[!] No active sessions found on recording server");
         }
@@ -335,7 +335,7 @@ pub fn recover_from_database(backup_path: &str, session_id: Option<&str>, output
         
         println!("╚═══════════════════════════════════════════════════════════════════╝");
         println!();
-        println!("[i] Use 'chasm recover database {} --session <ID>' to export a session", backup_path);
+        println!("[i] Use 'ironbridge recover database {} --session <ID>' to export a session", backup_path);
     }
 
     Ok(())
@@ -545,7 +545,7 @@ pub fn recover_orphans(provider: &str, unindexed: bool, _verify: bool) -> Result
     println!();
     if total_orphans > 0 {
         println!("[i] Found {} potentially orphaned workspace(s)", total_orphans);
-        println!("[i] Use 'chasm register all' to re-index these workspaces");
+        println!("[i] Use 'ironbridge register all' to re-index these workspaces");
     } else {
         println!("[+] No orphaned sessions found");
     }
@@ -727,8 +727,8 @@ pub fn recover_status(provider: &str, check_system: bool) -> Result<()> {
     }
 
     println!("[*] Recommendations:");
-    println!("    1. Run 'chasm recover scan' to find recoverable sessions");
-    println!("    2. Use 'chasm harvest run' to consolidate all sessions");
+    println!("    1. Run 'ironbridge recover scan' to find recoverable sessions");
+    println!("    2. Use 'ironbridge harvest run' to consolidate all sessions");
     println!("    3. Consider setting up the recording API for crash protection");
 
     Ok(())
@@ -1054,7 +1054,7 @@ pub fn recover_extract(
         println!();
         println!("[*] Tips:");
         println!("    - Make sure the path matches exactly what VS Code opened");
-        println!("    - Try 'chasm recover scan' to see all available sessions");
+        println!("    - Try 'ironbridge recover scan' to see all available sessions");
         return Ok(());
     }
 
@@ -1062,7 +1062,7 @@ pub fn recover_extract(
     let output_dir = if let Some(out) = output {
         PathBuf::from(out)
     } else {
-        canonical_path.join(".chasm_recovery")
+        canonical_path.join(".ironbridge_recovery")
     };
 
     fs::create_dir_all(&output_dir)
@@ -1305,14 +1305,14 @@ pub fn recover_detect(file: &str, verbose: bool, output_json: bool) -> Result<()
         match format_info.format {
             VsCodeSessionFormat::LegacyJson => {
                 println!("    - This is legacy JSON format (VS Code < 1.109.0)");
-                println!("    - Convert to JSONL: chasm recover convert \"{}\" --format jsonl", file);
+                println!("    - Convert to JSONL: ironbridge recover convert \"{}\" --format jsonl", file);
             }
             VsCodeSessionFormat::JsonLines => {
                 println!("    - This is modern JSONL format (VS Code >= 1.109.0)");
-                println!("    - Convert to JSON: chasm recover convert \"{}\" --format json", file);
+                println!("    - Convert to JSON: ironbridge recover convert \"{}\" --format json", file);
             }
         }
-        println!("    - Export to Markdown: chasm recover convert \"{}\" --format md", file);
+        println!("    - Export to Markdown: ironbridge recover convert \"{}\" --format md", file);
     }
 
     Ok(())

@@ -1,4 +1,4 @@
-Chasm - Universal Chat Session Manager
+IronBridge - Universal Chat Session Manager
 Copyright 2024-2026 Nervosys LLC
 
 Licensed under the GNU Affero General Public License v3.0 (AGPL-3.0).
@@ -39,13 +39,13 @@ Key dependencies include:
 - ratatui (MIT) - Terminal UI framework
 
 For the complete list of dependencies and their licenses, see:
-https://github.com/nervosys/chasm-cli/blob/master/THIRD_PARTY_LICENSES.md
+https://github.com/nervosys/ironbridge-cli/blob/master/THIRD_PARTY_LICENSES.md
 
 ================================================================================
 
 TRADEMARKS
 
-"Chasm" and the Chasm logo are trademarks of Nervosys LLC.
+"IronBridge" and the IronBridge logo are trademarks of Nervosys LLC.
 
 The following are trademarks of their respective owners:
 - "VS Code" and "Visual Studio Code" are trademarks of Microsoft Corporation

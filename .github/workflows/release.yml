@@ -87,7 +87,7 @@ jobs:
         if: matrix.archive == 'tar.gz'
         run: |
           cd target/${{ matrix.target }}/release
-          tar -czvf ../../../chasm-${{ github.ref_name }}-${{ matrix.target }}.tar.gz chasm
+          tar -czvf ../../../ironbridge-${{ github.ref_name }}-${{ matrix.target }}.tar.gz ironbridge
           cd ../../..
 
       - name: Package (Windows)
@@ -95,7 +95,7 @@ jobs:
         shell: pwsh
         run: |
           cd target/${{ matrix.target }}/release
-          Compress-Archive -Path chasm.exe -DestinationPath ../../../chasm-${{ github.ref_name }}-${{ matrix.target }}.zip
+          Compress-Archive -Path ironbridge.exe -DestinationPath ../../../ironbridge-${{ github.ref_name }}-${{ matrix.target }}.zip
           cd ../../..
 
       - name: Upload Release Asset
@@ -104,8 +104,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ needs.create-release.outputs.upload_url }}
-          asset_path: ./chasm-${{ github.ref_name }}-${{ matrix.target }}.${{ matrix.archive }}
-          asset_name: chasm-${{ github.ref_name }}-${{ matrix.target }}.${{ matrix.archive }}
+          asset_path: ./ironbridge-${{ github.ref_name }}-${{ matrix.target }}.${{ matrix.archive }}
+          asset_name: ironbridge-${{ github.ref_name }}-${{ matrix.target }}.${{ matrix.archive }}
           asset_content_type: ${{ matrix.archive == 'zip' && 'application/zip' || 'application/gzip' }}
 
   publish-crates:

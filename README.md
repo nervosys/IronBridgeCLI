@@ -1,18 +1,18 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/nervosys/chasm-cli/master/assets/banner.png" alt="Chasm" width="100%">
+  <img src="https://raw.githubusercontent.com/nervosys/ironbridge-cli/master/assets/banner.png" alt="IronBridge" width="100%">
 </p>
 
 <p align="center">
-  <strong>Chat Session Manager (Chasm): Bridging the divide between AI providers</strong><br>
+  <strong>Chat Session Manager (IronBridge): Bridging the divide between AI providers</strong><br>
   <em>Harvest, harmonize, and recover your AI chat and agent task histories</em>
 </p>
 
 <p align="center">
-  <a href="https://crates.io/crates/chasm-cli"><img src="https://img.shields.io/crates/v/chasm-cli.svg?style=flat-square&logo=rust&logoColor=white&color=orange" alt="Crates.io"></a>
-  <a href="https://docs.rs/chasm-cli"><img src="https://img.shields.io/docsrs/chasm-cli?style=flat-square&logo=docs.rs&logoColor=white" alt="Documentation"></a>
-  <a href="https://github.com/nervosys/chasm-cli/actions"><img src="https://img.shields.io/github/actions/workflow/status/nervosys/chasm-cli/ci.yml?style=flat-square&logo=github&logoColor=white&label=CI" alt="CI Status"></a>
+  <a href="https://crates.io/crates/ironbridge-cli"><img src="https://img.shields.io/crates/v/ironbridge-cli.svg?style=flat-square&logo=rust&logoColor=white&color=orange" alt="Crates.io"></a>
+  <a href="https://docs.rs/ironbridge-cli"><img src="https://img.shields.io/docsrs/ironbridge-cli?style=flat-square&logo=docs.rs&logoColor=white" alt="Documentation"></a>
+  <a href="https://github.com/nervosys/ironbridge-cli/actions"><img src="https://img.shields.io/github/actions/workflow/status/nervosys/ironbridge-cli/ci.yml?style=flat-square&logo=github&logoColor=white&label=CI" alt="CI Status"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-AGPL--3.0-blue.svg?style=flat-square" alt="License"></a>
-  <a href="https://github.com/nervosys/chasm-cli/releases"><img src="https://img.shields.io/github/v/release/nervosys/chasm-cli?style=flat-square&logo=github&logoColor=white&label=release" alt="Release"></a>
+  <a href="https://github.com/nervosys/ironbridge-cli/releases"><img src="https://img.shields.io/github/v/release/nervosys/ironbridge-cli?style=flat-square&logo=github&logoColor=white&label=release" alt="Release"></a>
 </p>
 
 <p align="center">
@@ -28,14 +28,14 @@
 <br>
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/nervosys/chasm-cli/master/assets/getting-started.gif" alt="Chasm Demo" width="800">
+  <img src="https://raw.githubusercontent.com/nervosys/ironbridge-cli/master/assets/getting-started.gif" alt="IronBridge Demo" width="800">
 </p>
 
 <br>
 
 ---
 
-**Chasm** bridges the divide between AI providers by extracting and unifying chat sessions from AI coding assistants like GitHub Copilot, Cursor, and more. Never lose your AI conversations again.
+**IronBridge** bridges the divide between AI providers by extracting and unifying chat sessions from AI coding assistants like GitHub Copilot, Cursor, and more. Never lose your AI conversations again.
 
 ## ✨ Features
 
@@ -57,7 +57,7 @@ The #1 use case — recover chat sessions that disappeared from VS Code after an
 
 ```bash
 # Recover sessions for a specific project
-chasm fetch path /path/to/your/project
+ironbridge fetch path /path/to/your/project
 
 # Example output:
 # [<] Fetching Chat History for: my-project
@@ -79,20 +79,20 @@ After running, **reload VS Code** (`Ctrl+R` or `Cmd+R`) and your sessions will a
 
 ```bash
 # Scan for orphaned workspaces with recoverable sessions
-chasm detect orphaned /path/to/your/project
+ironbridge detect orphaned /path/to/your/project
 
 # Automatically recover them
-chasm detect orphaned --recover /path/to/your/project
+ironbridge detect orphaned --recover /path/to/your/project
 
 # Register recovered sessions so VS Code sees them
-chasm register all --force --path /path/to/your/project
+ironbridge register all --force --path /path/to/your/project
 ```
 
 ### Investigate a workspace
 
 ```bash
-# See everything chasm knows about a workspace
-chasm detect all /path/to/your/project --verbose
+# See everything ironbridge knows about a workspace
+ironbridge detect all /path/to/your/project --verbose
 
 # Output shows:
 # - Workspace ID and status
@@ -109,88 +109,88 @@ Bulk-collect sessions from every provider on your machine into a single searchab
 
 ```bash
 # Scan for all available providers and sessions
-chasm harvest scan
+ironbridge harvest scan
 
 # Harvest everything into a unified database
-chasm harvest run
+ironbridge harvest run
 
 # Harvest only from specific providers
-chasm harvest run --providers copilot
+ironbridge harvest run --providers copilot
 
 # Full-text search across ALL your AI conversations
-chasm harvest search "authentication"
-chasm harvest search "react component"
+ironbridge harvest search "authentication"
+ironbridge harvest search "react component"
 
 # Check database status
-chasm harvest status
+ironbridge harvest status
 ```
 
 ### Browse and explore
 
 ```bash
 # List all discovered workspaces
-chasm list workspaces
+ironbridge list workspaces
 
 # List sessions for a specific project
-chasm list sessions --project-path /path/to/your/project
+ironbridge list sessions --project-path /path/to/your/project
 
 # Search by project name or content
-chasm find session "my-project"
+ironbridge find session "my-project"
 
 # View full session content
-chasm show session <session-id>
+ironbridge show session <session-id>
 ```
 
 ### Export and backup
 
 ```bash
 # Export sessions from a project
-chasm export path /backup/dir /path/to/your/project
+ironbridge export path /backup/dir /path/to/your/project
 
 # Batch export from multiple projects
-chasm export batch /backup/dir /project1 /project2 /project3
+ironbridge export batch /backup/dir /project1 /project2 /project3
 
 # Sync between database and provider workspaces
-chasm sync --pull     # provider → database
-chasm sync --push     # database → provider
-chasm sync --pull --push  # bidirectional
+ironbridge sync --pull     # provider → database
+ironbridge sync --push     # database → provider
+ironbridge sync --pull --push  # bidirectional
 ```
 
 ---
 
 ## 🚀 Chat with Any AI Provider
 
-Launch any AI provider directly from the terminal — every message is automatically recorded to Chasm's database. No data loss, no manual exports, full history retention.
+Launch any AI provider directly from the terminal — every message is automatically recorded to IronBridge's database. No data loss, no manual exports, full history retention.
 
 ```bash
 # Chat with a local Ollama model
-chasm run ollama
-chasm run ollama -m codellama
-chasm run ollama -m mistral --endpoint http://remote-server:11434
+ironbridge run ollama
+ironbridge run ollama -m codellama
+ironbridge run ollama -m mistral --endpoint http://remote-server:11434
 
 # Chat with Claude (Anthropic API)
-chasm run claude
-chasm run claude -m claude-3-haiku
+ironbridge run claude
+ironbridge run claude -m claude-3-haiku
 
 # Chat with ChatGPT (OpenAI API)
-chasm run chatgpt
-chasm run chatgpt -m gpt-4o-mini
+ironbridge run chatgpt
+ironbridge run chatgpt -m gpt-4o-mini
 
 # Launch Claude Code CLI with recording
-chasm run claudecode --workspace /path/to/project
+ironbridge run claudecode --workspace /path/to/project
 
 # Launch OpenCode CLI with recording
-chasm run opencode --workspace /path/to/project
+ironbridge run opencode --workspace /path/to/project
 
 # Interactive TUI browser
-chasm run tui
+ironbridge run tui
 ```
 
 All sessions are automatically persisted to the database. Search them later:
 
 ```bash
-chasm harvest search "the bug we fixed yesterday"
-chasm list sessions
+ironbridge harvest search "the bug we fixed yesterday"
+ironbridge list sessions
 ```
 
 ---
@@ -199,7 +199,7 @@ chasm list sessions
 
 Your AI chat history is scattered across VS Code Copilot (SQLite + JSON), Cursor (proprietary format), ChatGPT (web-only), Claude (web-only), and local LLMs (various formats). Each uses different formats, storage locations, and APIs. If you switch providers, you lose context.
 
-Chasm normalizes all sessions into a **universal format** so you can:
+IronBridge normalizes all sessions into a **universal format** so you can:
 
 1. **Import from any provider** into a unified database
 2. **Export to any format** (JSON, Markdown, CSV)
@@ -213,21 +213,21 @@ Chasm normalizes all sessions into a **universal format** so you can:
 #    (sessions automatically tracked)
 
 # 2. Later, recover and view your sessions
-chasm fetch path /path/to/project
-chasm list sessions --project-path /path/to/project
+ironbridge fetch path /path/to/project
+ironbridge list sessions --project-path /path/to/project
 
 # 3. Export for portability
-chasm export path ./backup /path/to/project
+ironbridge export path ./backup /path/to/project
 
 # 4. Continue with Claude, GPT-4, or local Ollama
-chasm agency run -m claude-3 --context ./backup/session.json \
+ironbridge agency run -m claude-3 --context ./backup/session.json \
   "Review the code we wrote and suggest improvements"
 
 # 5. Merge multiple sessions into one unified history
-chasm merge path /path/to/project
+ironbridge merge path /path/to/project
 
 # 6. Search across ALL your AI conversations
-chasm harvest search "authentication implementation"
+ironbridge harvest search "authentication implementation"
 ```
 
 ### Universal session format
@@ -256,7 +256,7 @@ chasm harvest search "authentication implementation"
 }
 ```
 
-| Feature              | Vendor Lock-in    | With Chasm                  |
+| Feature              | Vendor Lock-in    | With IronBridge                  |
 | -------------------- | ----------------- | --------------------------- |
 | Switch providers     | Lose all history  | Keep everything             |
 | Search old chats     | Per-provider only | Search all at once          |
@@ -268,23 +268,23 @@ chasm harvest search "authentication implementation"
 
 ## 🤖 Agentic Coding
 
-Chasm includes a full **agentic coding toolkit** similar to Claude Code, but provider-agnostic. Run coding tasks with any LLM backend.
+IronBridge includes a full **agentic coding toolkit** similar to Claude Code, but provider-agnostic. Run coding tasks with any LLM backend.
 
 ```bash
 # Simple coding task (single agent)
-chasm agency run "Add error handling to main.rs"
+ironbridge agency run "Add error handling to main.rs"
 
 # Specify a model
-chasm agency run -m gpt-4o "Refactor this function to use async/await"
+ironbridge agency run -m gpt-4o "Refactor this function to use async/await"
 
 # Use local Ollama model
-chasm agency run -m ollama/codellama "Write unit tests for lib.rs"
+ironbridge agency run -m ollama/codellama "Write unit tests for lib.rs"
 
 # Multi-agent swarm for complex tasks
-chasm agency run --orchestration swarm "Build a REST API with authentication"
+ironbridge agency run --orchestration swarm "Build a REST API with authentication"
 
 # Parallel agents for speed
-chasm agency run --orchestration parallel "Analyze and fix all TODO comments"
+ironbridge agency run --orchestration parallel "Analyze and fix all TODO comments"
 ```
 
 ### Available tools
@@ -323,20 +323,20 @@ chasm agency run --orchestration parallel "Analyze and fix all TODO comments"
 
 ## 🔗 Merge & Consolidate Long Histories
 
-Over time, AI conversations scatter across workspaces, branches, and providers. Chasm's merge commands consolidate them into a coherent timeline:
+Over time, AI conversations scatter across workspaces, branches, and providers. IronBridge's merge commands consolidate them into a coherent timeline:
 
 ```bash
 # Merge all sessions for a project into a single session
-chasm merge path /path/to/your/project
+ironbridge merge path /path/to/your/project
 
 # Merge sessions from matching workspaces
-chasm merge workspace "my-project*"
+ironbridge merge workspace "my-project*"
 
 # Merge specific sessions by ID
-chasm merge sessions <id1> <id2> <id3>
+ironbridge merge sessions <id1> <id2> <id3>
 
 # Merge everything across all providers
-chasm merge all
+ironbridge merge all
 ```
 
 This is especially useful for:
@@ -351,7 +351,7 @@ This is especially useful for:
 Start the REST API server for integration with web/mobile apps:
 
 ```bash
-chasm api serve --host 0.0.0.0 --port 8787
+ironbridge api serve --host 0.0.0.0 --port 8787
 ```
 
 ### Endpoints
@@ -375,7 +375,7 @@ chasm api serve --host 0.0.0.0 --port 8787
 
 ### Real-time recording
 
-Chasm's recording API prevents data loss from editor crashes by capturing sessions as they happen. Extensions send incremental events and Chasm persists them in real-time.
+IronBridge's recording API prevents data loss from editor crashes by capturing sessions as they happen. Extensions send incremental events and IronBridge persists them in real-time.
 
 **Recording modes:** Live (WebSocket), Batch (REST), Hybrid (WebSocket + REST checkpoints)
 
@@ -422,30 +422,35 @@ Chasm's recording API prevents data loss from editor crashes by capturing sessio
 
 ### From crates.io
 
+> **Not published under this name yet.** Everything released so far is on
+> crates.io as [`chasm-cli`](https://crates.io/crates/chasm-cli), the project's
+> former name, up to 2.0.0. Until `ironbridge-cli` is registered, install from
+> source below — `cargo install ironbridge-cli` will not resolve.
+
 ```bash
-cargo install chasm-cli
+cargo install ironbridge-cli
 ```
 
 ### From source
 
 ```bash
-git clone https://github.com/nervosys/chasm-cli.git
-cd chasm-cli
+git clone https://github.com/nervosys/ironbridge-cli.git
+cd ironbridge-cli
 cargo install --path .
 ```
 
 ### Pre-built binaries
 
-Download from [GitHub Releases](https://github.com/nervosys/chasm-cli/releases):
+Download from [GitHub Releases](https://github.com/nervosys/ironbridge-cli/releases):
 
 | Platform    | Download                                                                                               |
 | ----------- | ------------------------------------------------------------------------------------------------------ |
-| Windows x64 | [chasm-v1.0.0-x86_64-pc-windows-msvc.zip](https://github.com/nervosys/chasm-cli/releases/latest)       |
-| Windows ARM | [chasm-v1.0.0-aarch64-pc-windows-msvc.zip](https://github.com/nervosys/chasm-cli/releases/latest)      |
-| macOS x64   | [chasm-v1.0.0-x86_64-apple-darwin.tar.gz](https://github.com/nervosys/chasm-cli/releases/latest)       |
-| macOS ARM   | [chasm-v1.0.0-aarch64-apple-darwin.tar.gz](https://github.com/nervosys/chasm-cli/releases/latest)      |
-| Linux x64   | [chasm-v1.0.0-x86_64-unknown-linux-gnu.tar.gz](https://github.com/nervosys/chasm-cli/releases/latest)  |
-| Linux musl  | [chasm-v1.0.0-x86_64-unknown-linux-musl.tar.gz](https://github.com/nervosys/chasm-cli/releases/latest) |
+| Windows x64 | [ironbridge-v1.0.0-x86_64-pc-windows-msvc.zip](https://github.com/nervosys/ironbridge-cli/releases/latest)       |
+| Windows ARM | [ironbridge-v1.0.0-aarch64-pc-windows-msvc.zip](https://github.com/nervosys/ironbridge-cli/releases/latest)      |
+| macOS x64   | [ironbridge-v1.0.0-x86_64-apple-darwin.tar.gz](https://github.com/nervosys/ironbridge-cli/releases/latest)       |
+| macOS ARM   | [ironbridge-v1.0.0-aarch64-apple-darwin.tar.gz](https://github.com/nervosys/ironbridge-cli/releases/latest)      |
+| Linux x64   | [ironbridge-v1.0.0-x86_64-unknown-linux-gnu.tar.gz](https://github.com/nervosys/ironbridge-cli/releases/latest)  |
+| Linux musl  | [ironbridge-v1.0.0-x86_64-unknown-linux-musl.tar.gz](https://github.com/nervosys/ironbridge-cli/releases/latest) |
 
 ### Database locations
 
@@ -466,121 +471,121 @@ Download from [GitHub Releases](https://github.com/nervosys/chasm-cli/releases):
 
 | Command                            | Description                                                         |
 | ---------------------------------- | ------------------------------------------------------------------- |
-| `chasm fetch path <project-path>`  | **Recover sessions** - Fetches and registers sessions for a project |
-| `chasm fetch workspace <pattern>`  | Fetch sessions from workspaces matching a pattern                   |
-| `chasm fetch session <id>`         | Fetch a specific session by ID                                      |
-| `chasm register all --path <path>` | Register all on-disk sessions into VS Code's database index         |
+| `ironbridge fetch path <project-path>`  | **Recover sessions** - Fetches and registers sessions for a project |
+| `ironbridge fetch workspace <pattern>`  | Fetch sessions from workspaces matching a pattern                   |
+| `ironbridge fetch session <id>`         | Fetch a specific session by ID                                      |
+| `ironbridge register all --path <path>` | Register all on-disk sessions into VS Code's database index         |
 
 ### Listing & Discovery
 
 | Command                                     | Description                                        |
 | ------------------------------------------- | -------------------------------------------------- |
-| `chasm list workspaces`                     | List all discovered workspaces                     |
-| `chasm list sessions`                       | List all sessions                                  |
-| `chasm list sessions --project-path <path>` | List sessions for a specific project               |
-| `chasm detect all <path>`                   | Auto-detect workspace, providers, and sessions     |
-| `chasm detect workspace <path>`             | Detect workspace info for a path                   |
-| `chasm detect providers`                    | List available LLM providers                       |
-| `chasm detect orphaned <path>`              | Find orphaned workspaces with recoverable sessions |
-| `chasm detect orphaned --recover <path>`    | Recover orphaned sessions to the active workspace  |
+| `ironbridge list workspaces`                     | List all discovered workspaces                     |
+| `ironbridge list sessions`                       | List all sessions                                  |
+| `ironbridge list sessions --project-path <path>` | List sessions for a specific project               |
+| `ironbridge detect all <path>`                   | Auto-detect workspace, providers, and sessions     |
+| `ironbridge detect workspace <path>`             | Detect workspace info for a path                   |
+| `ironbridge detect providers`                    | List available LLM providers                       |
+| `ironbridge detect orphaned <path>`              | Find orphaned workspaces with recoverable sessions |
+| `ironbridge detect orphaned --recover <path>`    | Recover orphaned sessions to the active workspace  |
 
 ### Viewing & Searching
 
 | Command                          | Description                     |
 | -------------------------------- | ------------------------------- |
-| `chasm show session <id>`        | Display full session content    |
-| `chasm find session <pattern>`   | Search sessions by text pattern |
-| `chasm find workspace <pattern>` | Search workspaces by name       |
+| `ironbridge show session <id>`        | Display full session content    |
+| `ironbridge find session <pattern>`   | Search sessions by text pattern |
+| `ironbridge find workspace <pattern>` | Search workspaces by name       |
 
 ### Export & Import
 
 | Command                                     | Description                              |
 | ------------------------------------------- | ---------------------------------------- |
-| `chasm export path <dest> <project-path>`   | Export sessions from a project           |
-| `chasm export workspace <dest> <hash>`      | Export sessions from a workspace         |
-| `chasm export batch <dest> <paths...>`      | Batch export from multiple projects      |
-| `chasm import path <source> <project-path>` | Import sessions into a project workspace |
+| `ironbridge export path <dest> <project-path>`   | Export sessions from a project           |
+| `ironbridge export workspace <dest> <hash>`      | Export sessions from a workspace         |
+| `ironbridge export batch <dest> <paths...>`      | Batch export from multiple projects      |
+| `ironbridge import path <source> <project-path>` | Import sessions into a project workspace |
 
 ### Merging
 
 | Command                                | Description                               |
 | -------------------------------------- | ----------------------------------------- |
-| `chasm merge path <project-path>`      | Merge all sessions for a project into one |
-| `chasm merge workspace <pattern>`      | Merge sessions from matching workspaces   |
-| `chasm merge sessions <id1> <id2> ...` | Merge specific sessions by ID             |
-| `chasm merge all`                      | Merge all sessions across all providers   |
+| `ironbridge merge path <project-path>`      | Merge all sessions for a project into one |
+| `ironbridge merge workspace <pattern>`      | Merge sessions from matching workspaces   |
+| `ironbridge merge sessions <id1> <id2> ...` | Merge specific sessions by ID             |
+| `ironbridge merge all`                      | Merge all sessions across all providers   |
 
 ### Sync & Recovery
 
 | Command                                   | Description                                               |
 | ----------------------------------------- | --------------------------------------------------------- |
-| `chasm sync --pull`                       | Pull sessions from provider workspaces into database      |
-| `chasm sync --push`                       | Push sessions from database back to provider workspaces   |
-| `chasm sync --pull --push`                | Bidirectional sync                                        |
-| `chasm sync --pull --workspace <pattern>` | Sync only matching workspaces                             |
-| `chasm recover scan`                      | Scan for recoverable sessions from various sources        |
-| `chasm recover extract <path>`            | Extract sessions from a VS Code workspace by project path |
-| `chasm recover orphans`                   | List sessions that may be orphaned in workspaceStorage    |
-| `chasm recover repair`                    | Repair corrupted session files in place                   |
-| `chasm recover convert`                   | Convert session files between JSON and JSONL formats      |
-| `chasm recover status`                    | Show recovery status and recommendations                  |
+| `ironbridge sync --pull`                       | Pull sessions from provider workspaces into database      |
+| `ironbridge sync --push`                       | Push sessions from database back to provider workspaces   |
+| `ironbridge sync --pull --push`                | Bidirectional sync                                        |
+| `ironbridge sync --pull --workspace <pattern>` | Sync only matching workspaces                             |
+| `ironbridge recover scan`                      | Scan for recoverable sessions from various sources        |
+| `ironbridge recover extract <path>`            | Extract sessions from a VS Code workspace by project path |
+| `ironbridge recover orphans`                   | List sessions that may be orphaned in workspaceStorage    |
+| `ironbridge recover repair`                    | Repair corrupted session files in place                   |
+| `ironbridge recover convert`                   | Convert session files between JSON and JSONL formats      |
+| `ironbridge recover status`                    | Show recovery status and recommendations                  |
 
 ### Harvesting (Bulk Collection)
 
 | Command                                 | Description                                       |
 | --------------------------------------- | ------------------------------------------------- |
-| `chasm harvest scan`                    | Scan for all available providers and sessions     |
-| `chasm harvest run`                     | Harvest sessions from all providers into database |
-| `chasm harvest run --providers copilot` | Harvest only from specific providers              |
-| `chasm harvest status`                  | Show harvest database status                      |
-| `chasm harvest search <query>`          | Full-text search across all harvested sessions    |
-| `chasm harvest sync --push`             | Alias for `chasm sync --push`                     |
-| `chasm harvest sync --pull`             | Alias for `chasm sync --pull`                     |
+| `ironbridge harvest scan`                    | Scan for all available providers and sessions     |
+| `ironbridge harvest run`                     | Harvest sessions from all providers into database |
+| `ironbridge harvest run --providers copilot` | Harvest only from specific providers              |
+| `ironbridge harvest status`                  | Show harvest database status                      |
+| `ironbridge harvest search <query>`          | Full-text search across all harvested sessions    |
+| `ironbridge harvest sync --push`             | Alias for `ironbridge sync --push`                     |
+| `ironbridge harvest sync --pull`             | Alias for `ironbridge sync --pull`                     |
 
 ### Interactive Tools
 
 | Command                              | Description                                  |
 | ------------------------------------ | -------------------------------------------- |
-| `chasm run tui`                      | Launch interactive TUI browser               |
-| `chasm run ollama`                   | Chat with Ollama (auto-records session)      |
-| `chasm run ollama -m codellama`      | Chat with a specific Ollama model            |
-| `chasm run claudecode`               | Launch Claude Code CLI with recording        |
-| `chasm run opencode`                 | Launch OpenCode CLI with recording           |
-| `chasm run claude`                   | Chat with Claude API (auto-records session)  |
-| `chasm run claude -m claude-3-haiku` | Chat with a specific Claude model            |
-| `chasm run chatgpt`                  | Chat with ChatGPT API (auto-records session) |
-| `chasm run chatgpt -m gpt-4o-mini`   | Chat with a specific ChatGPT model           |
+| `ironbridge run tui`                      | Launch interactive TUI browser               |
+| `ironbridge run ollama`                   | Chat with Ollama (auto-records session)      |
+| `ironbridge run ollama -m codellama`      | Chat with a specific Ollama model            |
+| `ironbridge run claudecode`               | Launch Claude Code CLI with recording        |
+| `ironbridge run opencode`                 | Launch OpenCode CLI with recording           |
+| `ironbridge run claude`                   | Chat with Claude API (auto-records session)  |
+| `ironbridge run claude -m claude-3-haiku` | Chat with a specific Claude model            |
+| `ironbridge run chatgpt`                  | Chat with ChatGPT API (auto-records session) |
+| `ironbridge run chatgpt -m gpt-4o-mini`   | Chat with a specific ChatGPT model           |
 
 ### Git Integration
 
 | Command              | Description                                 |
 | -------------------- | ------------------------------------------- |
-| `chasm git init`     | Initialize git versioning for chat sessions |
-| `chasm git add`      | Stage and commit chat sessions              |
-| `chasm git status`   | Show git status of chat sessions            |
-| `chasm git log`      | Show history of chat session commits        |
-| `chasm git snapshot` | Create a tagged snapshot                    |
+| `ironbridge git init`     | Initialize git versioning for chat sessions |
+| `ironbridge git add`      | Stage and commit chat sessions              |
+| `ironbridge git status`   | Show git status of chat sessions            |
+| `ironbridge git log`      | Show history of chat session commits        |
+| `ironbridge git snapshot` | Create a tagged snapshot                    |
 
 ### Provider Management
 
 | Command               | Description                   |
 | --------------------- | ----------------------------- |
-| `chasm provider list` | List discovered LLM providers |
+| `ironbridge provider list` | List discovered LLM providers |
 
 ### Server & API
 
 | Command                       | Description               |
 | ----------------------------- | ------------------------- |
-| `chasm api serve`             | Start the REST API server |
-| `chasm api serve --port 8787` | Start on specific port    |
+| `ironbridge api serve`             | Start the REST API server |
+| `ironbridge api serve --port 8787` | Start on specific port    |
 
 ### Telemetry
 
 | Command               | Description                            |
 | --------------------- | -------------------------------------- |
-| `chasm telemetry`     | Show current telemetry status          |
-| `chasm telemetry on`  | Enable anonymous usage data collection |
-| `chasm telemetry off` | Disable telemetry (opt-in by default)  |
+| `ironbridge telemetry`     | Show current telemetry status          |
+| `ironbridge telemetry on`  | Enable anonymous usage data collection |
+| `ironbridge telemetry off` | Disable telemetry (opt-in by default)  |
 
 </details>
 
@@ -596,8 +601,8 @@ Download from [GitHub Releases](https://github.com/nervosys/chasm-cli/releases):
 ### Building
 
 ```bash
-git clone https://github.com/nervosys/chasm-cli.git
-cd chasm-cli
+git clone https://github.com/nervosys/ironbridge-cli.git
+cd ironbridge-cli
 cargo build --release
 ```
 
@@ -611,8 +616,8 @@ cargo test
 
 This project is dual-licensed:
 
-- **Open Source**: [GNU Affero General Public License v3.0](LICENSE) — free for open-source use. If you modify Chasm and deploy it on a network, you must make the source available.
-- **Commercial**: A proprietary license is available for companies that need to use Chasm without AGPL obligations. See [COMMERCIAL_LICENSE.md](COMMERCIAL_LICENSE.md) for details or contact **licensing@nervosys.ai**.
+- **Open Source**: [GNU Affero General Public License v3.0](LICENSE) — free for open-source use. If you modify IronBridge and deploy it on a network, you must make the source available.
+- **Commercial**: A proprietary license is available for companies that need to use IronBridge without AGPL obligations. See [COMMERCIAL_LICENSE.md](COMMERCIAL_LICENSE.md) for details or contact **licensing@nervosys.ai**.
 
 ## 🤝 Contributing
 
@@ -624,7 +629,7 @@ For security issues, please see our [Security Policy](SECURITY.md).
 
 ### Security Audit Summary (v1.2.9)
 
-Chasm underwent a comprehensive security audit in January 2026 against industry frameworks:
+IronBridge underwent a comprehensive security audit in January 2026 against industry frameworks:
 
 | Framework        | Status      | Notes                           |
 | ---------------- | ----------- | ------------------------------- |
@@ -643,9 +648,9 @@ Chasm underwent a comprehensive security audit in January 2026 against industry 
 
 ## 📞 Support
 
-- 📖 [Documentation](https://docs.rs/chasm-cli)
-- 💬 [GitHub Discussions](https://github.com/nervosys/chasm-cli/discussions)
-- 🐛 [Issue Tracker](https://github.com/nervosys/chasm-cli/issues)
+- 📖 [Documentation](https://docs.rs/ironbridge-cli)
+- 💬 [GitHub Discussions](https://github.com/nervosys/ironbridge-cli/discussions)
+- 🐛 [Issue Tracker](https://github.com/nervosys/ironbridge-cli/issues)
 - 📧 [Email Support](mailto:support@nervosys.com)
 
 ---
@@ -655,5 +660,5 @@ Chasm underwent a comprehensive security audit in January 2026 against industry 
 </p>
 
 <p align="center">
-  <a href="https://github.com/nervosys/chasm-cli/stargazers">⭐ Star us on GitHub</a>
+  <a href="https://github.com/nervosys/ironbridge-cli/stargazers">⭐ Star us on GitHub</a>
 </p>

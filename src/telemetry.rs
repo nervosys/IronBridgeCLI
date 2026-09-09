@@ -3,7 +3,7 @@
 //! Telemetry module for anonymous usage data collection
 //!
 //! This module provides opt-in (by default) anonymous usage telemetry to help
-//! improve Chasm. No personal data is collected - only aggregate usage statistics.
+//! improve IronBridge. No personal data is collected - only aggregate usage statistics.
 
 use crate::error::{CsmError, Result};
 use serde::{Deserialize, Serialize};
@@ -63,11 +63,11 @@ impl TelemetryConfig {
     /// Get the path to the telemetry config file
     pub fn config_path() -> Result<PathBuf> {
         let config_dir = if cfg!(target_os = "windows") {
-            dirs::config_dir().map(|p| p.join("chasm"))
+            dirs::config_dir().map(|p| p.join("ironbridge"))
         } else if cfg!(target_os = "macos") {
-            dirs::home_dir().map(|p| p.join(".config/chasm"))
+            dirs::home_dir().map(|p| p.join(".config/ironbridge"))
         } else {
-            dirs::home_dir().map(|p| p.join(".config/chasm"))
+            dirs::home_dir().map(|p| p.join(".config/ironbridge"))
         };
 
         config_dir
@@ -260,7 +260,7 @@ impl Drop for TelemetryCollector {
 
 /// What data is collected (for user information)
 pub const TELEMETRY_INFO: &str = r#"
-Chasm collects anonymous usage data to help improve the product.
+IronBridge collects anonymous usage data to help improve the product.
 
 WHAT WE COLLECT:
   • Commands used (e.g., 'harvest', 'merge', 'export')
@@ -280,9 +280,9 @@ Your installation ID: {installation_id}
 Status: {status}
 
 Manage your preference:
-  chasm telemetry opt-in   - Enable data collection (default)
-  chasm telemetry opt-out  - Disable data collection
-  chasm telemetry reset    - Generate new anonymous ID
+  ironbridge telemetry opt-in   - Enable data collection (default)
+  ironbridge telemetry opt-out  - Disable data collection
+  ironbridge telemetry reset    - Generate new anonymous ID
 "#;
 
 // =============================================================================
@@ -360,9 +360,9 @@ impl TelemetryStore {
     /// Get path to the telemetry records file
     pub fn records_path() -> Result<PathBuf> {
         let config_dir = if cfg!(target_os = "windows") {
-            dirs::config_dir().map(|p| p.join("chasm"))
+            dirs::config_dir().map(|p| p.join("ironbridge"))
         } else {
-            dirs::home_dir().map(|p| p.join(".config/chasm"))
+            dirs::home_dir().map(|p| p.join(".config/ironbridge"))
         };
 
         config_dir
@@ -635,7 +635,7 @@ impl TelemetryStore {
     pub fn sync_to_remote(&self, limit: Option<usize>) -> Result<SyncResult> {
         if !self.config.is_remote_enabled() {
             return Err(CsmError::InvalidSessionFormat(
-                "Remote telemetry not configured. Use 'chasm telemetry config' to set endpoint and API key".to_string()
+                "Remote telemetry not configured. Use 'ironbridge telemetry config' to set endpoint and API key".to_string()
             ).into());
         }
 

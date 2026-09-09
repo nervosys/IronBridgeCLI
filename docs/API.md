@@ -1,11 +1,11 @@
-# Chasm CLI API Reference
+# IronBridge CLI API Reference
 
-This document describes the REST API endpoints provided by the Chasm CLI API server.
+This document describes the REST API endpoints provided by the IronBridge CLI API server.
 
 ## Starting the API Server
 
 ```bash
-chasm api serve [--port 8787] [--host 0.0.0.0]
+ironbridge api serve [--port 8787] [--host 0.0.0.0]
 ```
 
 Default: `http://0.0.0.0:8787`

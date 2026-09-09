@@ -217,15 +217,15 @@ impl WebhookState {
             .client
             .post(&webhook.url)
             .header("Content-Type", "application/json")
-            .header("X-Chasm-Webhook-Id", &webhook.id)
-            .header("X-Chasm-Event", &payload.event)
-            .header("X-Chasm-Delivery-Id", &delivery_id);
+            .header("X-IronBridge-Webhook-Id", &webhook.id)
+            .header("X-IronBridge-Event", &payload.event)
+            .header("X-IronBridge-Delivery-Id", &delivery_id);
 
         // Add signature if secret is configured
         if let Some(ref secret) = webhook.secret {
             if let Ok(body) = serde_json::to_string(payload) {
                 let signature = compute_signature(secret, &body);
-                request = request.header("X-Chasm-Signature", format!("sha256={}", signature));
+                request = request.header("X-IronBridge-Signature", format!("sha256={}", signature));
             }
         }
 
@@ -472,7 +472,7 @@ pub async fn test_webhook(
         let event = body.event.clone().unwrap_or(WebhookEvent::SessionCreated);
         let test_data = serde_json::json!({
             "test": true,
-            "message": "This is a test webhook delivery from Chasm"
+            "message": "This is a test webhook delivery from IronBridge"
         });
 
         let payload = WebhookPayload {

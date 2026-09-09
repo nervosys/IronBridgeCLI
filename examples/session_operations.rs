@@ -2,8 +2,8 @@
 //!
 //! Run with: cargo run --example session_operations
 
-use chasm::models::{ChatMessage, ChatRequest, ChatSession};
-use chasm::workspace::{find_workspace_by_path, get_chat_sessions_from_workspace};
+use ironbridge::models::{ChatMessage, ChatRequest, ChatSession};
+use ironbridge::workspace::{find_workspace_by_path, get_chat_sessions_from_workspace};
 use uuid::Uuid;
 
 fn main() -> anyhow::Result<()> {

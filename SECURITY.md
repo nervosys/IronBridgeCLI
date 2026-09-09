@@ -11,7 +11,7 @@ We provide security updates for the following versions:
 
 ## Reporting a Vulnerability
 
-We take security seriously. If you discover a security vulnerability in Chasm, please report it responsibly.
+We take security seriously. If you discover a security vulnerability in IronBridge, please report it responsibly.
 
 ### How to Report
 
@@ -48,18 +48,18 @@ Please include the following in your report:
 
 ## Security Best Practices
 
-When using Chasm, we recommend:
+When using IronBridge, we recommend:
 
 ### For Users
 
 1. **Keep updated**: Always use the latest version
 2. **Secure your database**: The SQLite database may contain sensitive chat history
 3. **API security**: If running the API server, use appropriate network security
-4. **Access control**: Limit who can access your Chasm installation
+4. **Access control**: Limit who can access your IronBridge installation
 
 ### For Self-Hosting
 
-If you're running the Chasm API server:
+If you're running the IronBridge API server:
 
 1. **Use HTTPS**: Always use TLS in production
 2. **Firewall**: Restrict access to trusted networks
@@ -68,7 +68,7 @@ If you're running the Chasm API server:
 
 ### Environment Variables
 
-Chasm may use the following environment variables. Keep them secure:
+IronBridge may use the following environment variables. Keep them secure:
 
 - `CSM_DATABASE_PATH` - Path to the database file
 - `CSM_API_PORT` - API server port
@@ -89,7 +89,7 @@ Chasm may use the following environment variables. Keep them secure:
 
 ### Cookie Decryption
 
-- Chasm can decrypt browser cookies to access chat provider sessions
+- IronBridge can decrypt browser cookies to access chat provider sessions
 - This feature requires appropriate system permissions
 - Use this feature responsibly and only on systems you own
 
@@ -110,6 +110,6 @@ For security-related questions or concerns:
 
 ---
 
-Thank you for helping keep Chasm and its users safe! 🛡️
+Thank you for helping keep IronBridge and its users safe! 🛡️
 
 
