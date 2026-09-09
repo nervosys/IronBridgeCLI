@@ -25,7 +25,8 @@
 > its tests still run; it is simply no longer where the crate comes from.
 >
 > Earlier releases are on crates.io under the project's former name,
-> [`chasm-cli`](https://crates.io/crates/chasm-cli), up to 2.0.0.
+> [`chasm-cli`](https://crates.io/crates/chasm-cli). That crate is deprecated:
+> 2.0.1 is its final release and points at `ironbridge-cli`.
 
 <p align="center">
   <a href="#-recover-lost-chat-sessions">Recover Sessions</a> •
@@ -434,10 +435,10 @@ IronBridge's recording API prevents data loss from editor crashes by capturing s
 
 ### From crates.io
 
-Nothing is published from this repository. `cargo install ironbridge-cli` fetches
-the maintained 2.x line, which is a different tree; the crate released from
-*this* source was [`chasm-cli`](https://crates.io/crates/chasm-cli), under the
-project's former name, up to 2.0.0.
+Nothing is published from this repository. `cargo install ironbridge-cli` gets
+the maintained 2.x line, which is a different tree, and
+[`chasm-cli`](https://crates.io/crates/chasm-cli) — the name this source was
+released under — is deprecated as of its final 2.0.1 release.
 
 To build the 1.x code here, use the source or the binaries below.
 
