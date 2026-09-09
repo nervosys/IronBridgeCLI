@@ -1,6 +1,10 @@
 [package]
-name = "ironbridge-cli"
+# The `ironbridge-cli` name on crates.io belongs to the 2.x line in
+# nervosys/IronBridge. This repository is the archived 1.x source: it is
+# built from here, never published from here.
+name = "ironbridge-cli-legacy"
 version = "1.3.2"
+publish = false
 edition = "2021"
 rust-version = "1.85"
 description = "Universal chat session manager - harvest, merge, and analyze AI chat history from VS Code, Cursor, and other editors"
