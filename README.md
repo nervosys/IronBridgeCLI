@@ -8,12 +8,24 @@
 </p>
 
 <p align="center">
-  <a href="https://crates.io/crates/ironbridge-cli"><img src="https://img.shields.io/crates/v/ironbridge-cli.svg?style=flat-square&logo=rust&logoColor=white&color=orange" alt="Crates.io"></a>
-  <a href="https://docs.rs/ironbridge-cli"><img src="https://img.shields.io/docsrs/ironbridge-cli?style=flat-square&logo=docs.rs&logoColor=white" alt="Documentation"></a>
+  <img src="https://img.shields.io/badge/status-archived%201.x-lightgrey?style=flat-square" alt="Archived 1.x">
   <a href="https://github.com/nervosys/IronBridgeCLI/actions"><img src="https://img.shields.io/github/actions/workflow/status/nervosys/IronBridgeCLI/ci.yml?style=flat-square&logo=github&logoColor=white&label=CI" alt="CI Status"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-AGPL--3.0-blue.svg?style=flat-square" alt="License"></a>
   <a href="https://github.com/nervosys/IronBridgeCLI/releases"><img src="https://img.shields.io/github/v/release/nervosys/IronBridgeCLI?style=flat-square&logo=github&logoColor=white&label=release" alt="Release"></a>
 </p>
+
+> [!IMPORTANT]
+> **This is the archived 1.x source.** Development continues in the IronBridge
+> monorepo, which carries the 2.x line — a REST and GraphQL API, MCP server,
+> desktop and mobile apps, and the editor extensions — alongside this CLI.
+>
+> The `ironbridge-cli` crate on crates.io belongs to that 2.x line. The package
+> here is `ironbridge-cli-legacy` and sets `publish = false`, so nothing is
+> published from this repository. It still builds and installs from source, and
+> its tests still run; it is simply no longer where the crate comes from.
+>
+> Earlier releases are on crates.io under the project's former name,
+> [`chasm-cli`](https://crates.io/crates/chasm-cli), up to 2.0.0.
 
 <p align="center">
   <a href="#-recover-lost-chat-sessions">Recover Sessions</a> •
@@ -422,22 +434,22 @@ IronBridge's recording API prevents data loss from editor crashes by capturing s
 
 ### From crates.io
 
-> **Not published under this name yet.** Everything released so far is on
-> crates.io as [`chasm-cli`](https://crates.io/crates/chasm-cli), the project's
-> former name, up to 2.0.0. Until `ironbridge-cli` is registered, install from
-> source below — `cargo install ironbridge-cli` will not resolve.
+Nothing is published from this repository. `cargo install ironbridge-cli` fetches
+the maintained 2.x line, which is a different tree; the crate released from
+*this* source was [`chasm-cli`](https://crates.io/crates/chasm-cli), under the
+project's former name, up to 2.0.0.
 
-```bash
-cargo install ironbridge-cli
-```
+To build the 1.x code here, use the source or the binaries below.
 
 ### From source
 
 ```bash
 git clone https://github.com/nervosys/IronBridgeCLI.git
-cd ironbridge-cli
+cd IronBridgeCLI
 cargo install --path .
 ```
+
+This installs the `ironbridge` and `csm-mcp` binaries from this tree.
 
 ### Pre-built binaries
 

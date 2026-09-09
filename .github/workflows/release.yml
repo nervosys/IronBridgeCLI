@@ -108,19 +108,11 @@ jobs:
           asset_name: ironbridge-${{ github.ref_name }}-${{ matrix.target }}.${{ matrix.archive }}
           asset_content_type: ${{ matrix.archive == 'zip' && 'application/zip' || 'application/gzip' }}
 
-  publish-crates:
-    name: Publish to crates.io
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Install Rust
-        uses: dtolnay/rust-toolchain@stable
-        with:
-          toolchain: stable
-
-      - name: Publish to crates.io
-        run: cargo publish --token ${{ secrets.CRATES_IO_TOKEN }}
-        env:
-          CARGO_REGISTRY_TOKEN: ${{ secrets.CRATES_IO_TOKEN }}
+  # There is no publish job. The `ironbridge-cli` name on crates.io belongs to
+  # the 2.x line in nervosys/IronBridge, and this package carries
+  # `publish = false`, so `cargo publish` refuses here by design. A job that
+  # tried anyway would fail every tagged release and teach people to ignore a
+  # red release run.
+  #
+  # Binaries are still built and attached above: this repository remains the
+  # buildable 1.x source, it just is not the source of the crate.

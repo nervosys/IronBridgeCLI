@@ -1,5 +1,9 @@
 # IronBridge Launch Thread — X / Twitter
 
+> **Draft, and written against the maintained 2.x line, not this archived
+> repository.** The `cargo install ironbridge-cli` it quotes resolves to the
+> monorepo's crate; nothing is published from here. Kept for the copy.
+
 > **Instructions:** Post tweet 1, then reply to it with tweet 2, reply to tweet 2 with tweet 3, etc. Each tweet is ≤280 characters unless noted. Suggested images/media are marked with 🖼️.
 
 ---
