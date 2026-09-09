@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/nervosys/ironbridge-cli/master/assets/banner.png" alt="IronBridge" width="100%">
+  <img src="https://raw.githubusercontent.com/nervosys/IronBridgeCLI/master/assets/banner.png" alt="IronBridge" width="100%">
 </p>
 
 <p align="center">
@@ -10,9 +10,9 @@
 <p align="center">
   <a href="https://crates.io/crates/ironbridge-cli"><img src="https://img.shields.io/crates/v/ironbridge-cli.svg?style=flat-square&logo=rust&logoColor=white&color=orange" alt="Crates.io"></a>
   <a href="https://docs.rs/ironbridge-cli"><img src="https://img.shields.io/docsrs/ironbridge-cli?style=flat-square&logo=docs.rs&logoColor=white" alt="Documentation"></a>
-  <a href="https://github.com/nervosys/ironbridge-cli/actions"><img src="https://img.shields.io/github/actions/workflow/status/nervosys/ironbridge-cli/ci.yml?style=flat-square&logo=github&logoColor=white&label=CI" alt="CI Status"></a>
+  <a href="https://github.com/nervosys/IronBridgeCLI/actions"><img src="https://img.shields.io/github/actions/workflow/status/nervosys/IronBridgeCLI/ci.yml?style=flat-square&logo=github&logoColor=white&label=CI" alt="CI Status"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-AGPL--3.0-blue.svg?style=flat-square" alt="License"></a>
-  <a href="https://github.com/nervosys/ironbridge-cli/releases"><img src="https://img.shields.io/github/v/release/nervosys/ironbridge-cli?style=flat-square&logo=github&logoColor=white&label=release" alt="Release"></a>
+  <a href="https://github.com/nervosys/IronBridgeCLI/releases"><img src="https://img.shields.io/github/v/release/nervosys/IronBridgeCLI?style=flat-square&logo=github&logoColor=white&label=release" alt="Release"></a>
 </p>
 
 <p align="center">
@@ -28,7 +28,7 @@
 <br>
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/nervosys/ironbridge-cli/master/assets/getting-started.gif" alt="IronBridge Demo" width="800">
+  <img src="https://raw.githubusercontent.com/nervosys/IronBridgeCLI/master/assets/getting-started.gif" alt="IronBridge Demo" width="800">
 </p>
 
 <br>
@@ -434,23 +434,23 @@ cargo install ironbridge-cli
 ### From source
 
 ```bash
-git clone https://github.com/nervosys/ironbridge-cli.git
+git clone https://github.com/nervosys/IronBridgeCLI.git
 cd ironbridge-cli
 cargo install --path .
 ```
 
 ### Pre-built binaries
 
-Download from [GitHub Releases](https://github.com/nervosys/ironbridge-cli/releases):
+Download from [GitHub Releases](https://github.com/nervosys/IronBridgeCLI/releases):
 
 | Platform    | Download                                                                                               |
 | ----------- | ------------------------------------------------------------------------------------------------------ |
-| Windows x64 | [ironbridge-v1.0.0-x86_64-pc-windows-msvc.zip](https://github.com/nervosys/ironbridge-cli/releases/latest)       |
-| Windows ARM | [ironbridge-v1.0.0-aarch64-pc-windows-msvc.zip](https://github.com/nervosys/ironbridge-cli/releases/latest)      |
-| macOS x64   | [ironbridge-v1.0.0-x86_64-apple-darwin.tar.gz](https://github.com/nervosys/ironbridge-cli/releases/latest)       |
-| macOS ARM   | [ironbridge-v1.0.0-aarch64-apple-darwin.tar.gz](https://github.com/nervosys/ironbridge-cli/releases/latest)      |
-| Linux x64   | [ironbridge-v1.0.0-x86_64-unknown-linux-gnu.tar.gz](https://github.com/nervosys/ironbridge-cli/releases/latest)  |
-| Linux musl  | [ironbridge-v1.0.0-x86_64-unknown-linux-musl.tar.gz](https://github.com/nervosys/ironbridge-cli/releases/latest) |
+| Windows x64 | [ironbridge-v1.0.0-x86_64-pc-windows-msvc.zip](https://github.com/nervosys/IronBridgeCLI/releases/latest)       |
+| Windows ARM | [ironbridge-v1.0.0-aarch64-pc-windows-msvc.zip](https://github.com/nervosys/IronBridgeCLI/releases/latest)      |
+| macOS x64   | [ironbridge-v1.0.0-x86_64-apple-darwin.tar.gz](https://github.com/nervosys/IronBridgeCLI/releases/latest)       |
+| macOS ARM   | [ironbridge-v1.0.0-aarch64-apple-darwin.tar.gz](https://github.com/nervosys/IronBridgeCLI/releases/latest)      |
+| Linux x64   | [ironbridge-v1.0.0-x86_64-unknown-linux-gnu.tar.gz](https://github.com/nervosys/IronBridgeCLI/releases/latest)  |
+| Linux musl  | [ironbridge-v1.0.0-x86_64-unknown-linux-musl.tar.gz](https://github.com/nervosys/IronBridgeCLI/releases/latest) |
 
 ### Database locations
 
@@ -601,7 +601,7 @@ Download from [GitHub Releases](https://github.com/nervosys/ironbridge-cli/relea
 ### Building
 
 ```bash
-git clone https://github.com/nervosys/ironbridge-cli.git
+git clone https://github.com/nervosys/IronBridgeCLI.git
 cd ironbridge-cli
 cargo build --release
 ```
@@ -649,8 +649,8 @@ IronBridge underwent a comprehensive security audit in January 2026 against indu
 ## 📞 Support
 
 - 📖 [Documentation](https://docs.rs/ironbridge-cli)
-- 💬 [GitHub Discussions](https://github.com/nervosys/ironbridge-cli/discussions)
-- 🐛 [Issue Tracker](https://github.com/nervosys/ironbridge-cli/issues)
+- 💬 [GitHub Discussions](https://github.com/nervosys/IronBridgeCLI/discussions)
+- 🐛 [Issue Tracker](https://github.com/nervosys/IronBridgeCLI/issues)
 - 📧 [Email Support](mailto:support@nervosys.com)
 
 ---
@@ -660,5 +660,5 @@ IronBridge underwent a comprehensive security audit in January 2026 against indu
 </p>
 
 <p align="center">
-  <a href="https://github.com/nervosys/ironbridge-cli/stargazers">⭐ Star us on GitHub</a>
+  <a href="https://github.com/nervosys/IronBridgeCLI/stargazers">⭐ Star us on GitHub</a>
 </p>

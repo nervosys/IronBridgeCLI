@@ -39,7 +39,7 @@ Key dependencies include:
 - ratatui (MIT) - Terminal UI framework
 
 For the complete list of dependencies and their licenses, see:
-https://github.com/nervosys/ironbridge-cli/blob/master/THIRD_PARTY_LICENSES.md
+https://github.com/nervosys/IronBridgeCLI/blob/master/THIRD_PARTY_LICENSES.md
 
 ================================================================================
 

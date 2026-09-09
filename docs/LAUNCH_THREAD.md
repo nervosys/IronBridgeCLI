@@ -178,9 +178,9 @@ ironbridge harvest scan
 ironbridge fetch path /path/to/your/project
 ```
 
-⭐ Star us: github.com/nervosys/ironbridge-cli
+⭐ Star us: github.com/nervosys/IronBridgeCLI
 📖 Docs: docs.rs/ironbridge-cli
-💬 Discussions: github.com/nervosys/ironbridge-cli/discussions
+💬 Discussions: github.com/nervosys/IronBridgeCLI/discussions
 
 Built by @nervosys
 

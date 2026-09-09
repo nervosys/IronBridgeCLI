@@ -196,6 +196,6 @@ Multiple forum threads ask about exporting AI conversations for personal model f
 
 ---
 
-*Analysis conducted for nervosys/ironbridge-cli project positioning.*
+*Analysis conducted for nervosys/IronBridgeCLI project positioning.*
 *Data sourced from public GitHub repositories and community forums.*
 *Last updated: February 2026*
